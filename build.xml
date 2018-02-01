@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="UWR" default="compile">
+
+	<property file="build.properties"></property>
+	<path id="junit_lib">
+		<fileset dir="${lib.dir}/junit">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+	<path id="aspose_lib">
+		<fileset dir="${lib.dir}/">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+	
+    <description>
+            Universal Word Reporter
+    </description>
+
+    <target name="init">
+        <!--mkdir dir="${lib.dir}"/-->
+    </target> 
+	
+	<target name="clean">
+		<delete includeemptydirs="true">
+			<fileset dir="${dest1.dir}" includes="**/*.class" />
+		</delete>
+	</target>
+	
+	<target name="compile" depends="init">	
+		<javac target="1.8" srcdir="${basedir}/src" nowarn="off" destdir="${dest1.dir}" includes="**/*.java" debug="true">
+			<classpath refid="junit_lib"/>
+			<classpath refid="aspose_lib"/>
+			<compilerarg value="-Xlint:unchecked"/>
+			<compilerarg line="-encoding utf8"/>   
+		</javac>
+	</target>
+</project>

@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataSourceConfig>
+	<datasource type="const">
+		<!-- 第1 2节 -->
+		<var type="value" name="name">工程名</var>
+		<var type="value" name="rule_collection">所使用规则集</var>
+		<var type="value" name="error_domain">分析是否发生错误域</var>
+		<var type="value" name="person">分析人</var>
+		<var type="value" name="files">文件数</var>
+		<var type="value" name="code">代码行数</var>
+        <var type="value" name="test" expr="3+5"></var>
+        <var type="value" name="abc" expr="${test} + 7"></var>
+        <var type="value" name="x1" expr="${test}*${abc}+5-9/${abc}"></var>
+		<var type="value" name="rules">规则总数</var>
+		<var type="value" name="cost">分析花费时间</var>
+		<var type="value" name="version">测试工具版本</var>
+		<!-- 3.1	静态分析结果 -->
+		<var type="map" name="result">
+			<var type="value" name="val1">规则违反数</var>
+			<var type="value" name="val2">静态分析违反规则数统计</var>
+			<var type="value" name="val3">已确认违反规则数</var>
+			<var type="value" name="val4">已确认不违反规则数</var>
+			<var type="value" name="val5">未确认规则违反数</var>
+        </var>
+        <var type="list" name="listresult">
+			<var type="value">太阳</var>
+			<var type="value">3</var>
+			<var type="value">2</var>
+			<var type="value">1</var>
+            <var type="map" name="mapresult">
+		    	<var type="value" name="val1">11</var>
+		    	<var type="value" name="val2">22</var>
+		    	<var type="value" name="val3">33</var>
+		    	<var type="value" name="val4">44</var>
+		    	<var type="value" name="val5">55</var>
+                <var type="list" name="listresult1">
+		        	<var type="value">4</var>
+		        	<var type="value">3</var>
+		        	<var type="value">2</var>
+		        	<var type="value">1</var>
+                    <var type="map" name="mapresult2">
+		            	<var type="value" name="val1">211</var>
+		            	<var type="value" name="val2">222</var>
+		            	<var type="value" name="val3">233</var>
+		            	<var type="value" name="val4">244</var>
+		            	<var type="value" name="val5">255</var>
+                    </var>
+                </var>
+            </var>
+		</var>
+        <var type="map" name="mapresult1">
+			<var type="value" name="val1">1</var>
+			<var type="value" name="val3">3</var>
+			<var type="value" name="val1">4</var>
+            </var>
+		
+	</datasource>
+	
+	<!-- 列表都从数据库读取，使用说明在模板中红字 -->
+	<datasource type="db" name="db_sql">
+		<driver>org.sqlite.JDBC</driver>
+		<url>jdbc:sqlite:/home/piao/piaoyong/UWR/00-客户提供资料/SpecChecker报告导出/数据源/RuleConLevT.db</url>
+		<username>user</username>
+		<password>pass</password>
+	</datasource>
+	
+	<!-- 文档中使用的图片都在这个文件夹下 -->
+	<datasource type="img" name="img1">
+		<path></path>
+	</datasource>
+	<datasource type="xml" name="xml1">
+		<file>resource/employees.xml</file>
+	</datasource>
+	<datasource type="xml" name="viosxml">
+		<file>resource/XX-17.xml</file>
+	</datasource>
+</DataSourceConfig>

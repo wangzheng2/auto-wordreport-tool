@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="GBK"?>
+<?xml-stylesheet type="text/xsl" href=".config/chart.xsl"?>
+<SpecChecker  timestamp="2017-10-15T10:14:32.152" xmlns="http://www.sunwiseinfo.com/xsd/violation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sunwiseinfo.com/xsd/violation violation.xsd">
+<metrics fileCount="2"  prjName="XX-17" version="Specchecker 2.0.0" srcfileCount="2" headfileCount="1" loc="10" vioSize="16" errorSize="0" startTime="1508033670454" startDate="2017年 10月 15日  10时 14分 30秒 " endTime="1508033672148" ruleset="E:\ForSpecChecker20170922\SpecCheckerCMD\rulesets\user\MISRA2004编程规范.xml" author="Admin"  >
+<time name="startTime" takes="109" />
+<time name="E:\ForSpecChecker20170922\specCheckerSrc\XX-17\test3 1\1.1\src\Rule5y_5_16_1.c" takes="126" />
+<time name="E:\ForSpecChecker20170922\specCheckerSrc\XX-17\test3 1\1.1\src\Rule5y_5_16_2.c" takes="170" />
+<time name="endTime" takes="0" />
+</metrics>
+
+<violations>
+<item id="CharTypeDefine" description="字符类型应标明是有符号还是无符号" priorityName="高优先级" priority="1" category="类型使用规则" >
+<violation beginline="3" endline="0" begincolumn="9" endcolumn="0" file="E:\ForSpecChecker20170922\specCheckerSrc\XX-17\test3 1\1.1\src\Rule5y_5_16_1.c" vioFlag="-1" desc="" message="字符类型str1没有标明有符号还是无符号" />
+</item>
+<item id="CommentRate" description="注释率不能低于30%" priorityName="高优先级" priority="1" category="可读性规则" >
+<violation beginline="1" endline="0" begincolumn="0" endcolumn="0" file="E:\ForSpecChecker20170922\specCheckerSrc\XX-17\test3 1\1.1\src\Rule5y_5_16_1.c" vioFlag="-1" desc="" message="注释率为：20.00%" />
+<violation beginline="1" endline="0" begincolumn="0" endcolumn="0" file="E:\ForSpecChecker20170922\specCheckerSrc\XX-17\test3 1\1.1\src\Rule5y_5_16_2.c" vioFlag="-1" desc="" message="注释率为：0.00%" />
+</item>
+<item id="CommentRate20" description="注释率不能低于20%" priorityName="高优先级" priority="1" category="可读性规则" >
+<violation beginline="1" endline="0" begincolumn="0" endcolumn="0" file="E:\ForSpecChecker20170922\specCheckerSrc\XX-17\test3 1\1.1\src\Rule5y_5_16_2.c" vioFlag="-1" desc="" message="注释率为：0.00%" />
+</item>
+<item id="DefineNotUseExitRule" description="变量定义未使用就退出作用域" priorityName="高优先级" priority="1" category="数据流分析" >
+<violation beginline="4" endline="0" begincolumn="0" endcolumn="0" file="E:\ForSpecChecker20170922\specCheckerSrc\XX-17\test3 1\1.1\src\Rule5y_5_16_2.c" vioFlag="-1" desc="" message="变量temp定义了未引用就退出作用域" />
+</item>
+<item id="EnumMemberInitComplete" description="枚举元素初始化必须完整" priorityName="高优先级" priority="1" category="初始化规则" >
+<violation beginline="3" endline="0" begincolumn="3" endcolumn="0" file="E:\ForSpecChecker20170922\specCheckerSrc\XX-17\test3 1\1.1\src\Rule5y_5_16_2.c" vioFlag="-1" desc="" message=" 枚举元素初始化必须完整" />
+</item>
+<item id="EnumeratorInt" description="枚举类型的变量的成员必须初始化为整型" priorityName="高优先级" priority="1" category="初始化规则" >
+<violation beginline="3" endline="0" begincolumn="0" endcolumn="0" file="E:\ForSpecChecker20170922\specCheckerSrc\XX-17\test3 1\1.1\src\Rule5y_5_16_2.c" vioFlag="-1" desc="" message="枚举类型的变量成员b初始化值为&apos;x&apos;，不是整型" />
+</item>
+<item id="NONPtrAndPterTypeCast" description="将指针量赋予非指针变量或非指针量赋予指针变量，必须使用强制转换" priorityName="高优先级" priority="1" category="类型转换规则" >
+<violation beginline="3" endline="0" begincolumn="21" endcolumn="0" file="E:\ForSpecChecker20170922\specCheckerSrc\XX-17\test3 1\1.1\src\Rule5y_5_16_1.c" vioFlag="-1" desc="" message="将指针量赋予非指针变量，必须使用强制转换" />
+</item>
+<item id="NONPtrAndPterTypeCastCareful" description="谨慎将指针量赋予非指针变量或非指针量赋予指针变量" priorityName="中优先级" priority="3" category="类型转换规则" >
+<violation beginline="3" endline="0" begincolumn="21" endcolumn="0" file="E:\ForSpecChecker20170922\specCheckerSrc\XX-17\test3 1\1.1\src\Rule5y_5_16_1.c" vioFlag="-1" desc="" message="谨慎将指针量赋予非指针变量" />
+</item>
+<item id="RedefineFunc" description="禁止对同一函数作多次定义" priorityName="高优先级" priority="1" category="声明定义规则" >
+<violation beginline="1" endline="0" begincolumn="0" endcolumn="0" file="E:\ForSpecChecker20170922\specCheckerSrc\XX-17\test3 1\1.1\src\Rule5y_5_16_2.c" vioFlag="-1" desc="" message="函数static_p在[Rule5y_5_16_1.c#1、Rule5y_5_16_2.c#]重复定义" />
+</item>
+<item id="TooLongStringInit" description="字符串的赋值必须在所分配的空间中" priorityName="高优先级" priority="1" category="初始化规则" >
+<violation beginline="3" endline="0" begincolumn="0" endcolumn="0" file="E:\ForSpecChecker20170922\specCheckerSrc\XX-17\test3 1\1.1\src\Rule5y_5_16_1.c" vioFlag="-1" desc="" message="字符串长度是7，分配的空间是5" />
+</item>
+<item id="UnusedDecl" description="应避免已声明了函数、变量或常量等，但未使用" priorityName="高优先级" priority="1" category="声明定义规则" >
+<violation beginline="3" endline="0" begincolumn="0" endcolumn="0" file="E:\ForSpecChecker20170922\specCheckerSrc\XX-17\test3 1\1.1\src\Rule5y_5_16_1.c" vioFlag="-1" desc="" message="str1未使用" />
+<violation beginline="1" endline="0" begincolumn="0" endcolumn="0" file="E:\ForSpecChecker20170922\specCheckerSrc\XX-17\test3 1\1.1\src\Rule5y_5_16_2.c" vioFlag="-1" desc="" message="static_p未使用" />
+</item>
+<item id="UnusedFunctions" description="避免无用的多余函数" priorityName="中优先级" priority="3" category="语句使用规则" >
+<violation beginline="1" endline="0" begincolumn="0" endcolumn="0" file="E:\ForSpecChecker20170922\specCheckerSrc\XX-17\test3 1\1.1\src\Rule5y_5_16_2.c" vioFlag="-1" desc="" message="函数static_p没有使用" />
+</item>
+<item id="UnusedVariables" description="避免无用的多余变量" priorityName="中优先级" priority="3" category="语句使用规则" >
+<violation beginline="3" endline="0" begincolumn="0" endcolumn="0" file="E:\ForSpecChecker20170922\specCheckerSrc\XX-17\test3 1\1.1\src\Rule5y_5_16_1.c" vioFlag="-1" desc="" message="变量str1没有使用" />
+</item>
+<item id="VarDeclWithInit" description="建议变量在声明的同时进行初始化" priorityName="中优先级" priority="3" category="初始化规则" >
+<violation beginline="3" endline="0" begincolumn="0" endcolumn="0" file="E:\ForSpecChecker20170922\specCheckerSrc\XX-17\test3 1\1.1\src\Rule5y_5_16_2.c" vioFlag="-1" desc="" message="变量temp在声明时未进行初始化" />
+</item>
+</violations>
+
+</SpecChecker>

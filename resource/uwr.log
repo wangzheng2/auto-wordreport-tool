@@ -1,0 +1,753 @@
+[INFO ] 2017-12-04 14:53:31.053 [core.generator.ReportGenerator.main(ReportGenerator.java:36)] - ===== Starting Universal Word Report Generator =====
+[DEBUG] 2017-12-04 14:53:31.136 [core.generator.ReportGenerator.argsRead(ReportGenerator.java:95)] - ----- commandline -----
+[DEBUG] 2017-12-04 14:53:31.136 [core.generator.ReportGenerator.argsRead(ReportGenerator.java:96)] - arguments:
+[DEBUG] 2017-12-04 14:53:31.136 [core.generator.ReportGenerator.argsRead(ReportGenerator.java:98)] -     resource/Template_new.doc
+[DEBUG] 2017-12-04 14:53:31.136 [core.generator.ReportGenerator.argsRead(ReportGenerator.java:102)] - parameters:
+[DEBUG] 2017-12-04 14:53:31.136 [core.generator.ReportGenerator.argsRead(ReportGenerator.java:105)] -     -o resource/output.doc
+[DEBUG] 2017-12-04 14:53:31.137 [core.generator.ReportGenerator.argsRead(ReportGenerator.java:105)] -     -d on
+[DEBUG] 2017-12-04 14:53:31.137 [core.generator.ReportGenerator.argsRead(ReportGenerator.java:105)] -     -c resource/Template_new_datasource.xml
+[DEBUG] 2017-12-04 14:53:31.137 [core.generator.ReportGenerator.argsRead(ReportGenerator.java:113)] - template: resource/Template_new.doc
+[DEBUG] 2017-12-04 14:53:31.137 [core.generator.ReportGenerator.argsRead(ReportGenerator.java:114)] - config: resource/Template_new_datasource.xml
+[DEBUG] 2017-12-04 14:53:31.137 [core.generator.ReportGenerator.argsRead(ReportGenerator.java:115)] - output: resource/output.doc
+[DEBUG] 2017-12-04 14:53:31.137 [core.generator.ReportGenerator.argsRead(ReportGenerator.java:116)] - debug: true
+[INFO ] 2017-12-04 14:53:31.138 [core.generator.ReportGenerator.main(ReportGenerator.java:40)] - ===== Step 1: Reading Configurations =====
+[INFO ] 2017-12-04 14:53:31.198 [core.generator.ReportGenerator.main(ReportGenerator.java:43)] - ===== Step 2: Template Labels Rewriting =====
+[INFO ] 2017-12-04 14:53:31.683 [core.generator.ReportGenerator.main(ReportGenerator.java:45)] - ===== Step 3: Template Variables Parsing =====
+[DEBUG] 2017-12-04 14:53:31.710 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:27)] - ***extract: name="testimg1"#ds="img1"#query="${items}"
+[DEBUG] 2017-12-04 14:53:31.711 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:38)] - dsname: img1
+[DEBUG] 2017-12-04 14:53:31.711 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:40)] - SKIPPED!
+[DEBUG] 2017-12-04 14:53:31.712 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:27)] - ***extract: name="sex"#value="Female"
+[DEBUG] 2017-12-04 14:53:31.712 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:55)] - name: sex
+[DEBUG] 2017-12-04 14:53:31.712 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:78)] - value: Female
+[DEBUG] 2017-12-04 14:53:31.713 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:27)] - ***extract: name="num"#value="0"
+[DEBUG] 2017-12-04 14:53:31.713 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:55)] - name: num
+[DEBUG] 2017-12-04 14:53:31.713 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:78)] - value: 0
+[DEBUG] 2017-12-04 14:53:31.714 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:27)] - ***extract: name="tp2"#ds="xml1"#query="/Employees/Employee[gender='${sex}' and @id>${num}]"
+[DEBUG] 2017-12-04 14:53:31.714 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:38)] - dsname: xml1
+[DEBUG] 2017-12-04 14:53:31.714 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:40)] - SKIPPED!
+[DEBUG] 2017-12-04 14:53:31.714 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:27)] - ***extract: name="tp3"#ds="xml1"#query="/Employees/Employee"
+[DEBUG] 2017-12-04 14:53:31.714 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:38)] - dsname: xml1
+[DEBUG] 2017-12-04 14:53:31.715 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:40)] - SKIPPED!
+[DEBUG] 2017-12-04 14:53:31.715 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:27)] - ***extract: name="readme"#value="5"
+[DEBUG] 2017-12-04 14:53:31.715 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:55)] - name: readme
+[DEBUG] 2017-12-04 14:53:31.715 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:78)] - value: 5
+[DEBUG] 2017-12-04 14:53:31.716 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:27)] - ***extract: name="testeval"#expr="${tp2.nodes[1].id}*40*${tp2[2].id}"
+[DEBUG] 2017-12-04 14:53:31.716 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:55)] - name: testeval
+[DEBUG] 2017-12-04 14:53:31.716 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:62)] - expr: ${tp2.nodes[1].id}*40*${tp2[2].id}
+[DEBUG] 2017-12-04 14:53:31.717 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:64)] - SKIPPED!
+[DEBUG] 2017-12-04 14:53:31.717 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:27)] - ***extract: name="needed"#value="6"
+[DEBUG] 2017-12-04 14:53:31.717 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:55)] - name: needed
+[DEBUG] 2017-12-04 14:53:31.718 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:78)] - value: 6
+[DEBUG] 2017-12-04 14:53:31.718 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:27)] - ***extract: name="tdb1"#ds="db_sql"#query="SELECT id, cid, name, description FROM checker where id <=${needed}"
+[DEBUG] 2017-12-04 14:53:31.718 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:38)] - dsname: db_sql
+[DEBUG] 2017-12-04 14:53:31.719 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:40)] - SKIPPED!
+[DEBUG] 2017-12-04 14:53:31.719 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:27)] - ***extract: name="tp5"#ds="xml1"#query="/Employees/Employee[gender='Female' and @id>${id}]"
+[DEBUG] 2017-12-04 14:53:31.719 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:38)] - dsname: xml1
+[DEBUG] 2017-12-04 14:53:31.719 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:40)] - SKIPPED!
+[DEBUG] 2017-12-04 14:53:31.720 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:27)] - ***extract: name="ttt"#expr="${readme}*40*${id}"
+[DEBUG] 2017-12-04 14:53:31.720 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:55)] - name: ttt
+[DEBUG] 2017-12-04 14:53:31.720 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:62)] - expr: ${readme}*40*${id}
+[DEBUG] 2017-12-04 14:53:31.720 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:64)] - SKIPPED!
+[DEBUG] 2017-12-04 14:53:31.721 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:27)] - ***extract: name="tttxxx"#expr="${ttt}+${id}"
+[DEBUG] 2017-12-04 14:53:31.721 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:55)] - name: tttxxx
+[DEBUG] 2017-12-04 14:53:31.721 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:62)] - expr: ${ttt}+${id}
+[DEBUG] 2017-12-04 14:53:31.721 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:64)] - SKIPPED!
+[DEBUG] 2017-12-04 14:53:31.722 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:27)] - ***extract: name="tttxxxz"#expr="${mapresult1.val1}+${id}+${value}"
+[DEBUG] 2017-12-04 14:53:31.722 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:55)] - name: tttxxxz
+[DEBUG] 2017-12-04 14:53:31.722 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:62)] - expr: ${mapresult1.val1}+${id}+${value}
+[DEBUG] 2017-12-04 14:53:31.723 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:64)] - SKIPPED!
+[DEBUG] 2017-12-04 14:53:31.723 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:27)] - ***extract: name="tttxxxz"#expr="${mapresult1.val1}+${id}+${value}"
+[DEBUG] 2017-12-04 14:53:31.724 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:55)] - name: tttxxxz
+[DEBUG] 2017-12-04 14:53:31.724 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:62)] - expr: ${mapresult1.val1}+${id}+${value}
+[DEBUG] 2017-12-04 14:53:31.724 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:64)] - SKIPPED!
+[DEBUG] 2017-12-04 14:53:31.725 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:27)] - ***extract: name="items"#ds="viosxml"#query="//*[local-name()='item']"
+[DEBUG] 2017-12-04 14:53:31.725 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:38)] - dsname: viosxml
+[DEBUG] 2017-12-04 14:53:31.725 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:40)] - SKIPPED!
+[DEBUG] 2017-12-04 14:53:31.726 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:27)] - ***extract: name="vios"#ds="viosxml"#query="//*[@id='${id}']/*[local-name()='violation']"
+[DEBUG] 2017-12-04 14:53:31.726 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:38)] - dsname: viosxml
+[DEBUG] 2017-12-04 14:53:31.727 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:40)] - SKIPPED!
+[DEBUG] 2017-12-04 14:53:31.727 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:27)] - ***extract: name="distinct_items"#ds="viosxml"#query="//*[local-name()='item' and not(preceding::*/@category = @category)]/@category"
+[DEBUG] 2017-12-04 14:53:31.728 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:38)] - dsname: viosxml
+[DEBUG] 2017-12-04 14:53:31.728 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:40)] - SKIPPED!
+[DEBUG] 2017-12-04 14:53:31.729 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:27)] - ***extract: name="xyz"#expr="${listresult[${mapresult1.val1}]}"
+[DEBUG] 2017-12-04 14:53:31.730 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:55)] - name: xyz
+[DEBUG] 2017-12-04 14:53:31.730 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:62)] - expr: ${listresult[${mapresult1.val1}]}
+[DEBUG] 2017-12-04 14:53:31.731 [core.generator.Action.StaticVarExtractAction.replacing(StaticVarExtractAction.java:64)] - SKIPPED!
+[INFO ] 2017-12-04 14:53:31.758 [core.generator.ReportGenerator.main(ReportGenerator.java:47)] - ===== Step 4: Data Initializing and Loading =====
+[INFO ] 2017-12-04 14:53:31.778 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:100)] - ----- <foreach> eraser: parsing (1) -----
+[INFO ] 2017-12-04 14:53:31.780 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tdb1
+[DEBUG] 2017-12-04 14:53:31.780 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tdb1
+[DEBUG] 2017-12-04 14:53:31.781 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:31.781 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tdb1
+[DEBUG] 2017-12-04 14:53:31.781 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tdb1
+[INFO ] 2017-12-04 14:53:31.781 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:31.782 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:31.782 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[INFO ] 2017-12-04 14:53:31.782 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp5
+[DEBUG] 2017-12-04 14:53:31.782 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp5
+[DEBUG] 2017-12-04 14:53:31.783 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:31.783 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp5
+[DEBUG] 2017-12-04 14:53:31.783 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:68)] - ***process NEXT time: tp5
+[INFO ] 2017-12-04 14:53:31.783 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp5
+[DEBUG] 2017-12-04 14:53:31.783 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp5
+[DEBUG] 2017-12-04 14:53:31.784 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:31.784 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp5
+[DEBUG] 2017-12-04 14:53:31.784 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:68)] - ***process NEXT time: tp5
+[DEBUG] 2017-12-04 14:53:31.784 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:31.784 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:31.785 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: listresult
+[DEBUG] 2017-12-04 14:53:31.785 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: listresult
+[DEBUG] 2017-12-04 14:53:31.785 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[INFO ] 2017-12-04 14:53:31.785 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:31.786 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:31.786 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:31.786 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:31.786 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:68)] - ***process NEXT time: tp3
+[DEBUG] 2017-12-04 14:53:31.786 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: listresult
+[DEBUG] 2017-12-04 14:53:31.787 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: listresult
+[INFO ] 2017-12-04 14:53:31.787 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: mapresult1
+[DEBUG] 2017-12-04 14:53:31.787 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: mapresult1
+[DEBUG] 2017-12-04 14:53:31.787 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[INFO ] 2017-12-04 14:53:31.787 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:31.788 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:31.788 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:31.788 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:31.788 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:68)] - ***process NEXT time: tp3
+[DEBUG] 2017-12-04 14:53:31.788 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: mapresult1
+[DEBUG] 2017-12-04 14:53:31.789 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: mapresult1
+[INFO ] 2017-12-04 14:53:31.789 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: items
+[DEBUG] 2017-12-04 14:53:31.789 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: items
+[DEBUG] 2017-12-04 14:53:31.789 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[INFO ] 2017-12-04 14:53:31.790 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: vios
+[DEBUG] 2017-12-04 14:53:31.790 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: vios
+[DEBUG] 2017-12-04 14:53:31.790 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:31.790 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: vios
+[DEBUG] 2017-12-04 14:53:31.790 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:68)] - ***process NEXT time: vios
+[DEBUG] 2017-12-04 14:53:31.791 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: items
+[DEBUG] 2017-12-04 14:53:31.791 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: items
+[INFO ] 2017-12-04 14:53:31.791 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: distinct_items
+[DEBUG] 2017-12-04 14:53:31.791 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: distinct_items
+[DEBUG] 2017-12-04 14:53:31.792 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:31.792 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: distinct_items
+[DEBUG] 2017-12-04 14:53:31.793 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: distinct_items
+[INFO ] 2017-12-04 14:53:31.794 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp2
+[DEBUG] 2017-12-04 14:53:31.794 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp2
+[DEBUG] 2017-12-04 14:53:31.794 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:31.795 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp2
+[DEBUG] 2017-12-04 14:53:31.795 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:60)] - ***postphone (foreach in TABLE): tp2
+[INFO ] 2017-12-04 14:53:31.795 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:31.796 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:31.796 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[INFO ] 2017-12-04 14:53:31.796 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:31.796 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:31.797 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:31.797 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:31.797 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:68)] - ***process NEXT time: tp3
+[DEBUG] 2017-12-04 14:53:31.797 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:31.798 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:60)] - ***postphone (foreach in TABLE): tp3
+[DEBUG] 2017-12-04 14:53:31.799 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="testimg1"#ds="img1"#query="${items}"
+[DEBUG] 2017-12-04 14:53:31.799 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:52)] - dsname: img1
+[DEBUG] 2017-12-04 14:53:31.804 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: testimg1
+[DEBUG] 2017-12-04 14:53:31.805 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:80)] - query: ${items}
+[DEBUG] 2017-12-04 14:53:31.805 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tp2"#ds="xml1"#query="/Employees/Employee[gender='${sex}' and @id>${num}]"
+[DEBUG] 2017-12-04 14:53:31.806 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:52)] - dsname: xml1
+[DEBUG] 2017-12-04 14:53:31.807 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tp2
+[DEBUG] 2017-12-04 14:53:31.807 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:80)] - query: /Employees/Employee[gender='${sex}' and @id>${num}]
+[DEBUG] 2017-12-04 14:53:31.808 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tp3"#ds="xml1"#query="/Employees/Employee"
+[DEBUG] 2017-12-04 14:53:31.808 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:52)] - dsname: xml1
+[DEBUG] 2017-12-04 14:53:31.808 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tp3
+[DEBUG] 2017-12-04 14:53:31.808 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:80)] - query: /Employees/Employee
+[DEBUG] 2017-12-04 14:53:31.809 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="testeval"#expr="${tp2.nodes[1].id}*40*${tp2[2].id}"
+[DEBUG] 2017-12-04 14:53:31.809 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: testeval
+[DEBUG] 2017-12-04 14:53:31.810 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${tp2.nodes[1].id}*40*${tp2[2].id}
+[DEBUG] 2017-12-04 14:53:31.810 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tdb1"#ds="db_sql"#query="SELECT id, cid, name, description FROM checker where id <=${needed}"
+[DEBUG] 2017-12-04 14:53:31.811 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:52)] - dsname: db_sql
+[DEBUG] 2017-12-04 14:53:31.812 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tdb1
+[DEBUG] 2017-12-04 14:53:31.812 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:80)] - query: SELECT id, cid, name, description FROM checker where id <=${needed}
+[DEBUG] 2017-12-04 14:53:31.813 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="items"#ds="viosxml"#query="//*[local-name()='item']"
+[DEBUG] 2017-12-04 14:53:31.813 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:52)] - dsname: viosxml
+[DEBUG] 2017-12-04 14:53:31.813 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: items
+[DEBUG] 2017-12-04 14:53:31.814 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:80)] - query: //*[local-name()='item']
+[DEBUG] 2017-12-04 14:53:31.814 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="distinct_items"#ds="viosxml"#query="//*[local-name()='item' and not(preceding::*/@category = @category)]/@category"
+[DEBUG] 2017-12-04 14:53:31.814 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:52)] - dsname: viosxml
+[DEBUG] 2017-12-04 14:53:31.814 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: distinct_items
+[DEBUG] 2017-12-04 14:53:31.815 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:80)] - query: //*[local-name()='item' and not(preceding::*/@category = @category)]/@category
+[DEBUG] 2017-12-04 14:53:31.816 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="xyz"#expr="${listresult[${mapresult1.val1}]}"
+[DEBUG] 2017-12-04 14:53:31.816 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: xyz
+[DEBUG] 2017-12-04 14:53:31.817 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${listresult[${mapresult1.val1}]}
+[INFO ] 2017-12-04 14:53:31.817 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:109)] - ----- <foreach> eraser: erasing (1) -----
+[DEBUG] 2017-12-04 14:53:31.817 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: distinct_items
+[DEBUG] 2017-12-04 14:53:31.926 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: items
+[DEBUG] 2017-12-04 14:53:31.983 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: mapresult1
+[DEBUG] 2017-12-04 14:53:31.999 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: listresult
+[DEBUG] 2017-12-04 14:53:32.015 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.045 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tdb1
+[INFO ] 2017-12-04 14:53:32.149 [core.common.DbDataSource.getConnection(DbDataSource.java:25)] - DB Connection successful: jdbc:sqlite:/home/piao/piaoyong/UWR/00-客户提供资料/SpecChecker报告导出/数据源/RuleConLevT.db
+[INFO ] 2017-12-04 14:53:32.234 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:100)] - ----- <foreach> eraser: parsing (2) -----
+[INFO ] 2017-12-04 14:53:32.235 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp5_11
+[DEBUG] 2017-12-04 14:53:32.235 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp5_11
+[DEBUG] 2017-12-04 14:53:32.235 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.235 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp5_11
+[DEBUG] 2017-12-04 14:53:32.236 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp5_11
+[INFO ] 2017-12-04 14:53:32.236 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp5_11
+[DEBUG] 2017-12-04 14:53:32.236 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp5_11
+[DEBUG] 2017-12-04 14:53:32.236 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.236 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp5_11
+[DEBUG] 2017-12-04 14:53:32.236 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp5_11
+[INFO ] 2017-12-04 14:53:32.237 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp5_12
+[DEBUG] 2017-12-04 14:53:32.237 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp5_12
+[DEBUG] 2017-12-04 14:53:32.237 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.237 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp5_12
+[DEBUG] 2017-12-04 14:53:32.237 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp5_12
+[INFO ] 2017-12-04 14:53:32.237 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp5_12
+[DEBUG] 2017-12-04 14:53:32.237 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp5_12
+[DEBUG] 2017-12-04 14:53:32.238 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.238 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp5_12
+[DEBUG] 2017-12-04 14:53:32.238 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp5_12
+[INFO ] 2017-12-04 14:53:32.238 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp5_13
+[DEBUG] 2017-12-04 14:53:32.238 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp5_13
+[DEBUG] 2017-12-04 14:53:32.238 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.239 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp5_13
+[DEBUG] 2017-12-04 14:53:32.239 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp5_13
+[INFO ] 2017-12-04 14:53:32.239 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp5_13
+[DEBUG] 2017-12-04 14:53:32.239 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp5_13
+[DEBUG] 2017-12-04 14:53:32.239 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.239 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp5_13
+[DEBUG] 2017-12-04 14:53:32.240 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp5_13
+[INFO ] 2017-12-04 14:53:32.240 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp5_14
+[DEBUG] 2017-12-04 14:53:32.240 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp5_14
+[DEBUG] 2017-12-04 14:53:32.240 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.240 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp5_14
+[DEBUG] 2017-12-04 14:53:32.240 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp5_14
+[INFO ] 2017-12-04 14:53:32.240 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp5_14
+[DEBUG] 2017-12-04 14:53:32.241 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp5_14
+[DEBUG] 2017-12-04 14:53:32.241 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.241 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp5_14
+[DEBUG] 2017-12-04 14:53:32.241 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp5_14
+[INFO ] 2017-12-04 14:53:32.241 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.241 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.242 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.242 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.242 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.242 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.242 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.242 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.242 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.243 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.243 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.243 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.243 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.243 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.243 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.243 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.244 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.244 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.244 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.244 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.244 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.245 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.245 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.245 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.245 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.245 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.245 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.245 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.246 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.246 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.246 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.247 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.247 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.247 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.247 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.247 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.247 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.247 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.248 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.248 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.248 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: vios_41
+[DEBUG] 2017-12-04 14:53:32.248 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: vios_41
+[DEBUG] 2017-12-04 14:53:32.248 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.248 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: vios_41
+[DEBUG] 2017-12-04 14:53:32.249 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: vios_41
+[INFO ] 2017-12-04 14:53:32.249 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: vios_42
+[DEBUG] 2017-12-04 14:53:32.249 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: vios_42
+[DEBUG] 2017-12-04 14:53:32.249 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.249 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: vios_42
+[DEBUG] 2017-12-04 14:53:32.249 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: vios_42
+[INFO ] 2017-12-04 14:53:32.250 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: vios_43
+[DEBUG] 2017-12-04 14:53:32.250 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: vios_43
+[DEBUG] 2017-12-04 14:53:32.250 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.250 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: vios_43
+[DEBUG] 2017-12-04 14:53:32.250 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: vios_43
+[INFO ] 2017-12-04 14:53:32.250 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: vios_44
+[DEBUG] 2017-12-04 14:53:32.251 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: vios_44
+[DEBUG] 2017-12-04 14:53:32.251 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.251 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: vios_44
+[DEBUG] 2017-12-04 14:53:32.251 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: vios_44
+[INFO ] 2017-12-04 14:53:32.251 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: vios_45
+[DEBUG] 2017-12-04 14:53:32.251 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: vios_45
+[DEBUG] 2017-12-04 14:53:32.251 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.252 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: vios_45
+[DEBUG] 2017-12-04 14:53:32.252 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: vios_45
+[INFO ] 2017-12-04 14:53:32.252 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: vios_46
+[DEBUG] 2017-12-04 14:53:32.252 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: vios_46
+[DEBUG] 2017-12-04 14:53:32.252 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.253 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: vios_46
+[DEBUG] 2017-12-04 14:53:32.253 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: vios_46
+[INFO ] 2017-12-04 14:53:32.253 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: vios_47
+[DEBUG] 2017-12-04 14:53:32.253 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: vios_47
+[DEBUG] 2017-12-04 14:53:32.253 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.253 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: vios_47
+[DEBUG] 2017-12-04 14:53:32.254 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: vios_47
+[INFO ] 2017-12-04 14:53:32.254 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: vios_48
+[DEBUG] 2017-12-04 14:53:32.254 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: vios_48
+[DEBUG] 2017-12-04 14:53:32.254 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.254 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: vios_48
+[DEBUG] 2017-12-04 14:53:32.254 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: vios_48
+[INFO ] 2017-12-04 14:53:32.254 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: vios_49
+[DEBUG] 2017-12-04 14:53:32.255 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: vios_49
+[DEBUG] 2017-12-04 14:53:32.255 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.255 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: vios_49
+[DEBUG] 2017-12-04 14:53:32.256 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: vios_49
+[INFO ] 2017-12-04 14:53:32.257 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: vios_410
+[DEBUG] 2017-12-04 14:53:32.257 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: vios_410
+[DEBUG] 2017-12-04 14:53:32.257 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.258 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: vios_410
+[DEBUG] 2017-12-04 14:53:32.258 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: vios_410
+[INFO ] 2017-12-04 14:53:32.258 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: vios_411
+[DEBUG] 2017-12-04 14:53:32.258 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: vios_411
+[DEBUG] 2017-12-04 14:53:32.258 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.258 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: vios_411
+[DEBUG] 2017-12-04 14:53:32.259 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: vios_411
+[INFO ] 2017-12-04 14:53:32.259 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: vios_412
+[DEBUG] 2017-12-04 14:53:32.259 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: vios_412
+[DEBUG] 2017-12-04 14:53:32.259 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.259 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: vios_412
+[DEBUG] 2017-12-04 14:53:32.259 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: vios_412
+[INFO ] 2017-12-04 14:53:32.259 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: vios_413
+[DEBUG] 2017-12-04 14:53:32.260 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: vios_413
+[DEBUG] 2017-12-04 14:53:32.260 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.260 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: vios_413
+[DEBUG] 2017-12-04 14:53:32.260 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: vios_413
+[INFO ] 2017-12-04 14:53:32.260 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: vios_414
+[DEBUG] 2017-12-04 14:53:32.260 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: vios_414
+[DEBUG] 2017-12-04 14:53:32.261 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: false
+[DEBUG] 2017-12-04 14:53:32.261 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: vios_414
+[DEBUG] 2017-12-04 14:53:32.261 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: vios_414
+[INFO ] 2017-12-04 14:53:32.261 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp2
+[DEBUG] 2017-12-04 14:53:32.261 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp2
+[DEBUG] 2017-12-04 14:53:32.261 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.262 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp2
+[DEBUG] 2017-12-04 14:53:32.262 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp2
+[INFO ] 2017-12-04 14:53:32.262 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.262 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.263 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[INFO ] 2017-12-04 14:53:32.263 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.263 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.263 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.264 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.264 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:68)] - ***process NEXT time: tp3
+[DEBUG] 2017-12-04 14:53:32.264 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.264 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:60)] - ***postphone (foreach in TABLE): tp3
+[INFO ] 2017-12-04 14:53:32.264 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.265 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.265 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[INFO ] 2017-12-04 14:53:32.265 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.265 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.265 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.265 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.266 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:68)] - ***process NEXT time: tp3
+[DEBUG] 2017-12-04 14:53:32.266 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.266 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:60)] - ***postphone (foreach in TABLE): tp3
+[INFO ] 2017-12-04 14:53:32.266 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.266 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.267 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[INFO ] 2017-12-04 14:53:32.267 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.267 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.267 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.267 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.267 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:68)] - ***process NEXT time: tp3
+[DEBUG] 2017-12-04 14:53:32.268 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.268 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:60)] - ***postphone (foreach in TABLE): tp3
+[INFO ] 2017-12-04 14:53:32.268 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.268 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.268 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[INFO ] 2017-12-04 14:53:32.269 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.269 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.269 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.269 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.269 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:68)] - ***process NEXT time: tp3
+[DEBUG] 2017-12-04 14:53:32.270 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.270 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:60)] - ***postphone (foreach in TABLE): tp3
+[DEBUG] 2017-12-04 14:53:32.271 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tp5_11"#ds="xml1"#query="/Employees/Employee[gender='Female' and @id>${tp3.nodes[1].id}]"
+[DEBUG] 2017-12-04 14:53:32.271 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:52)] - dsname: xml1
+[DEBUG] 2017-12-04 14:53:32.271 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tp5_11
+[DEBUG] 2017-12-04 14:53:32.272 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:80)] - query: /Employees/Employee[gender='Female' and @id>${tp3.nodes[1].id}]
+[DEBUG] 2017-12-04 14:53:32.273 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="ttt_11"#expr="${readme}*40*${tp3.nodes[1].id}"
+[DEBUG] 2017-12-04 14:53:32.274 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: ttt_11
+[DEBUG] 2017-12-04 14:53:32.274 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${readme}*40*${tp3.nodes[1].id}
+[DEBUG] 2017-12-04 14:53:32.274 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tp5_12"#ds="xml1"#query="/Employees/Employee[gender='Female' and @id>${tp3.nodes[2].id}]"
+[DEBUG] 2017-12-04 14:53:32.274 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:52)] - dsname: xml1
+[DEBUG] 2017-12-04 14:53:32.275 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tp5_12
+[DEBUG] 2017-12-04 14:53:32.275 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:80)] - query: /Employees/Employee[gender='Female' and @id>${tp3.nodes[2].id}]
+[DEBUG] 2017-12-04 14:53:32.275 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="ttt_12"#expr="${readme}*40*${tp3.nodes[2].id}"
+[DEBUG] 2017-12-04 14:53:32.275 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: ttt_12
+[DEBUG] 2017-12-04 14:53:32.276 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${readme}*40*${tp3.nodes[2].id}
+[DEBUG] 2017-12-04 14:53:32.276 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tp5_13"#ds="xml1"#query="/Employees/Employee[gender='Female' and @id>${tp3.nodes[3].id}]"
+[DEBUG] 2017-12-04 14:53:32.276 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:52)] - dsname: xml1
+[DEBUG] 2017-12-04 14:53:32.276 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tp5_13
+[DEBUG] 2017-12-04 14:53:32.276 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:80)] - query: /Employees/Employee[gender='Female' and @id>${tp3.nodes[3].id}]
+[DEBUG] 2017-12-04 14:53:32.277 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="ttt_13"#expr="${readme}*40*${tp3.nodes[3].id}"
+[DEBUG] 2017-12-04 14:53:32.277 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: ttt_13
+[DEBUG] 2017-12-04 14:53:32.277 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${readme}*40*${tp3.nodes[3].id}
+[DEBUG] 2017-12-04 14:53:32.278 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tp5_14"#ds="xml1"#query="/Employees/Employee[gender='Female' and @id>${tp3.nodes[4].id}]"
+[DEBUG] 2017-12-04 14:53:32.278 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:52)] - dsname: xml1
+[DEBUG] 2017-12-04 14:53:32.278 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tp5_14
+[DEBUG] 2017-12-04 14:53:32.278 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:80)] - query: /Employees/Employee[gender='Female' and @id>${tp3.nodes[4].id}]
+[DEBUG] 2017-12-04 14:53:32.278 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="ttt_14"#expr="${readme}*40*${tp3.nodes[4].id}"
+[DEBUG] 2017-12-04 14:53:32.279 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: ttt_14
+[DEBUG] 2017-12-04 14:53:32.279 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${readme}*40*${tp3.nodes[4].id}
+[DEBUG] 2017-12-04 14:53:32.279 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="vios_41"#ds="viosxml"#query="//*[@id='${items.nodes[1].id}']/*[local-name()='violation']"
+[DEBUG] 2017-12-04 14:53:32.280 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:52)] - dsname: viosxml
+[DEBUG] 2017-12-04 14:53:32.280 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: vios_41
+[DEBUG] 2017-12-04 14:53:32.280 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:80)] - query: //*[@id='${items.nodes[1].id}']/*[local-name()='violation']
+[DEBUG] 2017-12-04 14:53:32.280 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="vios_42"#ds="viosxml"#query="//*[@id='${items.nodes[2].id}']/*[local-name()='violation']"
+[DEBUG] 2017-12-04 14:53:32.281 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:52)] - dsname: viosxml
+[DEBUG] 2017-12-04 14:53:32.281 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: vios_42
+[DEBUG] 2017-12-04 14:53:32.281 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:80)] - query: //*[@id='${items.nodes[2].id}']/*[local-name()='violation']
+[DEBUG] 2017-12-04 14:53:32.281 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="vios_43"#ds="viosxml"#query="//*[@id='${items.nodes[3].id}']/*[local-name()='violation']"
+[DEBUG] 2017-12-04 14:53:32.281 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:52)] - dsname: viosxml
+[DEBUG] 2017-12-04 14:53:32.282 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: vios_43
+[DEBUG] 2017-12-04 14:53:32.282 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:80)] - query: //*[@id='${items.nodes[3].id}']/*[local-name()='violation']
+[DEBUG] 2017-12-04 14:53:32.282 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="vios_44"#ds="viosxml"#query="//*[@id='${items.nodes[4].id}']/*[local-name()='violation']"
+[DEBUG] 2017-12-04 14:53:32.282 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:52)] - dsname: viosxml
+[DEBUG] 2017-12-04 14:53:32.282 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: vios_44
+[DEBUG] 2017-12-04 14:53:32.283 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:80)] - query: //*[@id='${items.nodes[4].id}']/*[local-name()='violation']
+[DEBUG] 2017-12-04 14:53:32.283 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="vios_45"#ds="viosxml"#query="//*[@id='${items.nodes[5].id}']/*[local-name()='violation']"
+[DEBUG] 2017-12-04 14:53:32.283 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:52)] - dsname: viosxml
+[DEBUG] 2017-12-04 14:53:32.283 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: vios_45
+[DEBUG] 2017-12-04 14:53:32.283 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:80)] - query: //*[@id='${items.nodes[5].id}']/*[local-name()='violation']
+[DEBUG] 2017-12-04 14:53:32.284 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="vios_46"#ds="viosxml"#query="//*[@id='${items.nodes[6].id}']/*[local-name()='violation']"
+[DEBUG] 2017-12-04 14:53:32.284 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:52)] - dsname: viosxml
+[DEBUG] 2017-12-04 14:53:32.284 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: vios_46
+[DEBUG] 2017-12-04 14:53:32.284 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:80)] - query: //*[@id='${items.nodes[6].id}']/*[local-name()='violation']
+[DEBUG] 2017-12-04 14:53:32.284 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="vios_47"#ds="viosxml"#query="//*[@id='${items.nodes[7].id}']/*[local-name()='violation']"
+[DEBUG] 2017-12-04 14:53:32.285 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:52)] - dsname: viosxml
+[DEBUG] 2017-12-04 14:53:32.285 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: vios_47
+[DEBUG] 2017-12-04 14:53:32.285 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:80)] - query: //*[@id='${items.nodes[7].id}']/*[local-name()='violation']
+[DEBUG] 2017-12-04 14:53:32.285 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="vios_48"#ds="viosxml"#query="//*[@id='${items.nodes[8].id}']/*[local-name()='violation']"
+[DEBUG] 2017-12-04 14:53:32.285 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:52)] - dsname: viosxml
+[DEBUG] 2017-12-04 14:53:32.286 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: vios_48
+[DEBUG] 2017-12-04 14:53:32.286 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:80)] - query: //*[@id='${items.nodes[8].id}']/*[local-name()='violation']
+[DEBUG] 2017-12-04 14:53:32.286 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="vios_49"#ds="viosxml"#query="//*[@id='${items.nodes[9].id}']/*[local-name()='violation']"
+[DEBUG] 2017-12-04 14:53:32.286 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:52)] - dsname: viosxml
+[DEBUG] 2017-12-04 14:53:32.286 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: vios_49
+[DEBUG] 2017-12-04 14:53:32.287 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:80)] - query: //*[@id='${items.nodes[9].id}']/*[local-name()='violation']
+[DEBUG] 2017-12-04 14:53:32.287 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="vios_410"#ds="viosxml"#query="//*[@id='${items.nodes[10].id}']/*[local-name()='violation']"
+[DEBUG] 2017-12-04 14:53:32.287 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:52)] - dsname: viosxml
+[DEBUG] 2017-12-04 14:53:32.287 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: vios_410
+[DEBUG] 2017-12-04 14:53:32.288 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:80)] - query: //*[@id='${items.nodes[10].id}']/*[local-name()='violation']
+[DEBUG] 2017-12-04 14:53:32.289 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="vios_411"#ds="viosxml"#query="//*[@id='${items.nodes[11].id}']/*[local-name()='violation']"
+[DEBUG] 2017-12-04 14:53:32.289 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:52)] - dsname: viosxml
+[DEBUG] 2017-12-04 14:53:32.289 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: vios_411
+[DEBUG] 2017-12-04 14:53:32.290 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:80)] - query: //*[@id='${items.nodes[11].id}']/*[local-name()='violation']
+[DEBUG] 2017-12-04 14:53:32.290 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="vios_412"#ds="viosxml"#query="//*[@id='${items.nodes[12].id}']/*[local-name()='violation']"
+[DEBUG] 2017-12-04 14:53:32.290 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:52)] - dsname: viosxml
+[DEBUG] 2017-12-04 14:53:32.290 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: vios_412
+[DEBUG] 2017-12-04 14:53:32.290 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:80)] - query: //*[@id='${items.nodes[12].id}']/*[local-name()='violation']
+[DEBUG] 2017-12-04 14:53:32.291 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="vios_413"#ds="viosxml"#query="//*[@id='${items.nodes[13].id}']/*[local-name()='violation']"
+[DEBUG] 2017-12-04 14:53:32.291 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:52)] - dsname: viosxml
+[DEBUG] 2017-12-04 14:53:32.291 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: vios_413
+[DEBUG] 2017-12-04 14:53:32.291 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:80)] - query: //*[@id='${items.nodes[13].id}']/*[local-name()='violation']
+[DEBUG] 2017-12-04 14:53:32.292 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="vios_414"#ds="viosxml"#query="//*[@id='${items.nodes[14].id}']/*[local-name()='violation']"
+[DEBUG] 2017-12-04 14:53:32.292 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:52)] - dsname: viosxml
+[DEBUG] 2017-12-04 14:53:32.292 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: vios_414
+[DEBUG] 2017-12-04 14:53:32.292 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:80)] - query: //*[@id='${items.nodes[14].id}']/*[local-name()='violation']
+[INFO ] 2017-12-04 14:53:32.293 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:109)] - ----- <foreach> eraser: erasing (2) -----
+[DEBUG] 2017-12-04 14:53:32.293 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp2
+[DEBUG] 2017-12-04 14:53:32.299 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: vios_414
+[DEBUG] 2017-12-04 14:53:32.308 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: vios_413
+[DEBUG] 2017-12-04 14:53:32.316 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: vios_412
+[DEBUG] 2017-12-04 14:53:32.324 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: vios_411
+[DEBUG] 2017-12-04 14:53:32.333 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: vios_410
+[DEBUG] 2017-12-04 14:53:32.341 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: vios_49
+[DEBUG] 2017-12-04 14:53:32.347 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: vios_48
+[DEBUG] 2017-12-04 14:53:32.352 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: vios_47
+[DEBUG] 2017-12-04 14:53:32.358 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: vios_46
+[DEBUG] 2017-12-04 14:53:32.364 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: vios_45
+[DEBUG] 2017-12-04 14:53:32.371 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: vios_44
+[DEBUG] 2017-12-04 14:53:32.376 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: vios_43
+[DEBUG] 2017-12-04 14:53:32.382 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: vios_42
+[DEBUG] 2017-12-04 14:53:32.388 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: vios_41
+[DEBUG] 2017-12-04 14:53:32.394 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.397 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.400 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.404 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.407 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.411 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.414 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.417 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.420 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp5_14
+[DEBUG] 2017-12-04 14:53:32.423 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp5_14
+[DEBUG] 2017-12-04 14:53:32.423 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp5_13
+[DEBUG] 2017-12-04 14:53:32.428 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp5_13
+[DEBUG] 2017-12-04 14:53:32.428 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp5_12
+[DEBUG] 2017-12-04 14:53:32.432 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp5_12
+[DEBUG] 2017-12-04 14:53:32.432 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp5_11
+[DEBUG] 2017-12-04 14:53:32.436 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp5_11
+[INFO ] 2017-12-04 14:53:32.515 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:100)] - ----- <foreach> eraser: parsing (3) -----
+[INFO ] 2017-12-04 14:53:32.516 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.517 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.517 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[INFO ] 2017-12-04 14:53:32.517 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.517 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.517 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.518 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.518 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:68)] - ***process NEXT time: tp3
+[DEBUG] 2017-12-04 14:53:32.518 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.518 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.518 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.519 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.519 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[INFO ] 2017-12-04 14:53:32.519 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.519 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.520 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.520 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.520 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:68)] - ***process NEXT time: tp3
+[DEBUG] 2017-12-04 14:53:32.520 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.520 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.521 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.521 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.521 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[INFO ] 2017-12-04 14:53:32.521 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.521 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.522 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.522 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.522 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:68)] - ***process NEXT time: tp3
+[DEBUG] 2017-12-04 14:53:32.522 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.522 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.522 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.523 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.523 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[INFO ] 2017-12-04 14:53:32.523 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.523 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.523 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.523 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.524 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:68)] - ***process NEXT time: tp3
+[DEBUG] 2017-12-04 14:53:32.524 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.524 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[DEBUG] 2017-12-04 14:53:32.525 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxx_11_11"#expr="${ttt_11}+${tp5_11.nodes[1].id}"
+[DEBUG] 2017-12-04 14:53:32.525 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxx_11_11
+[DEBUG] 2017-12-04 14:53:32.525 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${ttt_11}+${tp5_11.nodes[1].id}
+[DEBUG] 2017-12-04 14:53:32.526 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxx_11_12"#expr="${ttt_11}+${tp5_11.nodes[2].id}"
+[DEBUG] 2017-12-04 14:53:32.526 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxx_11_12
+[DEBUG] 2017-12-04 14:53:32.527 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${ttt_11}+${tp5_11.nodes[2].id}
+[DEBUG] 2017-12-04 14:53:32.527 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxx_12_31"#expr="${ttt_12}+${tp5_12.nodes[1].id}"
+[DEBUG] 2017-12-04 14:53:32.528 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxx_12_31
+[DEBUG] 2017-12-04 14:53:32.528 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${ttt_12}+${tp5_12.nodes[1].id}
+[DEBUG] 2017-12-04 14:53:32.528 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxx_13_51"#expr="${ttt_13}+${tp5_13.nodes[1].id}"
+[DEBUG] 2017-12-04 14:53:32.528 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxx_13_51
+[DEBUG] 2017-12-04 14:53:32.528 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${ttt_13}+${tp5_13.nodes[1].id}
+[DEBUG] 2017-12-04 14:53:32.529 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_21_81"#expr="${mapresult1.val1}+${tp3.nodes[1].id}+${listresult[1]}"
+[DEBUG] 2017-12-04 14:53:32.529 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_21_81
+[DEBUG] 2017-12-04 14:53:32.529 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[1].id}+${listresult[1]}
+[DEBUG] 2017-12-04 14:53:32.529 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_21_82"#expr="${mapresult1.val1}+${tp3.nodes[2].id}+${listresult[1]}"
+[DEBUG] 2017-12-04 14:53:32.529 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_21_82
+[DEBUG] 2017-12-04 14:53:32.530 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[2].id}+${listresult[1]}
+[DEBUG] 2017-12-04 14:53:32.530 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_21_83"#expr="${mapresult1.val1}+${tp3.nodes[3].id}+${listresult[1]}"
+[DEBUG] 2017-12-04 14:53:32.530 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_21_83
+[DEBUG] 2017-12-04 14:53:32.530 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[3].id}+${listresult[1]}
+[DEBUG] 2017-12-04 14:53:32.531 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_21_84"#expr="${mapresult1.val1}+${tp3.nodes[4].id}+${listresult[1]}"
+[DEBUG] 2017-12-04 14:53:32.531 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_21_84
+[DEBUG] 2017-12-04 14:53:32.531 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[4].id}+${listresult[1]}
+[DEBUG] 2017-12-04 14:53:32.531 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_22_91"#expr="${mapresult1.val1}+${tp3.nodes[1].id}+${listresult[2]}"
+[DEBUG] 2017-12-04 14:53:32.531 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_22_91
+[DEBUG] 2017-12-04 14:53:32.532 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[1].id}+${listresult[2]}
+[DEBUG] 2017-12-04 14:53:32.532 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_22_92"#expr="${mapresult1.val1}+${tp3.nodes[2].id}+${listresult[2]}"
+[DEBUG] 2017-12-04 14:53:32.532 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_22_92
+[DEBUG] 2017-12-04 14:53:32.532 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[2].id}+${listresult[2]}
+[DEBUG] 2017-12-04 14:53:32.532 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_22_93"#expr="${mapresult1.val1}+${tp3.nodes[3].id}+${listresult[2]}"
+[DEBUG] 2017-12-04 14:53:32.533 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_22_93
+[DEBUG] 2017-12-04 14:53:32.533 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[3].id}+${listresult[2]}
+[DEBUG] 2017-12-04 14:53:32.533 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_22_94"#expr="${mapresult1.val1}+${tp3.nodes[4].id}+${listresult[2]}"
+[DEBUG] 2017-12-04 14:53:32.533 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_22_94
+[DEBUG] 2017-12-04 14:53:32.533 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[4].id}+${listresult[2]}
+[DEBUG] 2017-12-04 14:53:32.534 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_23_101"#expr="${mapresult1.val1}+${tp3.nodes[1].id}+${listresult[3]}"
+[DEBUG] 2017-12-04 14:53:32.534 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_23_101
+[DEBUG] 2017-12-04 14:53:32.534 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[1].id}+${listresult[3]}
+[DEBUG] 2017-12-04 14:53:32.534 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_23_102"#expr="${mapresult1.val1}+${tp3.nodes[2].id}+${listresult[3]}"
+[DEBUG] 2017-12-04 14:53:32.535 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_23_102
+[DEBUG] 2017-12-04 14:53:32.535 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[2].id}+${listresult[3]}
+[DEBUG] 2017-12-04 14:53:32.535 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_23_103"#expr="${mapresult1.val1}+${tp3.nodes[3].id}+${listresult[3]}"
+[DEBUG] 2017-12-04 14:53:32.535 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_23_103
+[DEBUG] 2017-12-04 14:53:32.535 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[3].id}+${listresult[3]}
+[DEBUG] 2017-12-04 14:53:32.535 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_23_104"#expr="${mapresult1.val1}+${tp3.nodes[4].id}+${listresult[3]}"
+[DEBUG] 2017-12-04 14:53:32.536 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_23_104
+[DEBUG] 2017-12-04 14:53:32.536 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[4].id}+${listresult[3]}
+[DEBUG] 2017-12-04 14:53:32.536 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_24_111"#expr="${mapresult1.val1}+${tp3.nodes[1].id}+${listresult[4]}"
+[DEBUG] 2017-12-04 14:53:32.536 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_24_111
+[DEBUG] 2017-12-04 14:53:32.536 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[1].id}+${listresult[4]}
+[DEBUG] 2017-12-04 14:53:32.537 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_24_112"#expr="${mapresult1.val1}+${tp3.nodes[2].id}+${listresult[4]}"
+[DEBUG] 2017-12-04 14:53:32.537 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_24_112
+[DEBUG] 2017-12-04 14:53:32.537 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[2].id}+${listresult[4]}
+[DEBUG] 2017-12-04 14:53:32.537 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_24_113"#expr="${mapresult1.val1}+${tp3.nodes[3].id}+${listresult[4]}"
+[DEBUG] 2017-12-04 14:53:32.537 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_24_113
+[DEBUG] 2017-12-04 14:53:32.538 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[3].id}+${listresult[4]}
+[DEBUG] 2017-12-04 14:53:32.538 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_24_114"#expr="${mapresult1.val1}+${tp3.nodes[4].id}+${listresult[4]}"
+[DEBUG] 2017-12-04 14:53:32.538 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_24_114
+[DEBUG] 2017-12-04 14:53:32.538 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[4].id}+${listresult[4]}
+[DEBUG] 2017-12-04 14:53:32.538 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_25_121"#expr="${mapresult1.val1}+${tp3.nodes[1].id}+${listresult[5]}"
+[DEBUG] 2017-12-04 14:53:32.538 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_25_121
+[DEBUG] 2017-12-04 14:53:32.539 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[1].id}+${listresult[5]}
+[DEBUG] 2017-12-04 14:53:32.539 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_25_122"#expr="${mapresult1.val1}+${tp3.nodes[2].id}+${listresult[5]}"
+[DEBUG] 2017-12-04 14:53:32.539 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_25_122
+[DEBUG] 2017-12-04 14:53:32.539 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[2].id}+${listresult[5]}
+[DEBUG] 2017-12-04 14:53:32.539 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_25_123"#expr="${mapresult1.val1}+${tp3.nodes[3].id}+${listresult[5]}"
+[DEBUG] 2017-12-04 14:53:32.540 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_25_123
+[DEBUG] 2017-12-04 14:53:32.540 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[3].id}+${listresult[5]}
+[DEBUG] 2017-12-04 14:53:32.540 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_25_124"#expr="${mapresult1.val1}+${tp3.nodes[4].id}+${listresult[5]}"
+[DEBUG] 2017-12-04 14:53:32.540 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_25_124
+[DEBUG] 2017-12-04 14:53:32.540 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[4].id}+${listresult[5]}
+[DEBUG] 2017-12-04 14:53:32.540 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_31_131"#expr="${mapresult1.val1}+${tp3.nodes[1].id}+${mapresult1[1]}"
+[DEBUG] 2017-12-04 14:53:32.541 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_31_131
+[DEBUG] 2017-12-04 14:53:32.541 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[1].id}+${mapresult1[1]}
+[DEBUG] 2017-12-04 14:53:32.541 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_31_132"#expr="${mapresult1.val1}+${tp3.nodes[2].id}+${mapresult1[1]}"
+[DEBUG] 2017-12-04 14:53:32.541 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_31_132
+[DEBUG] 2017-12-04 14:53:32.541 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[2].id}+${mapresult1[1]}
+[DEBUG] 2017-12-04 14:53:32.542 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_31_133"#expr="${mapresult1.val1}+${tp3.nodes[3].id}+${mapresult1[1]}"
+[DEBUG] 2017-12-04 14:53:32.542 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_31_133
+[DEBUG] 2017-12-04 14:53:32.542 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[3].id}+${mapresult1[1]}
+[DEBUG] 2017-12-04 14:53:32.542 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_31_134"#expr="${mapresult1.val1}+${tp3.nodes[4].id}+${mapresult1[1]}"
+[DEBUG] 2017-12-04 14:53:32.542 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_31_134
+[DEBUG] 2017-12-04 14:53:32.542 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[4].id}+${mapresult1[1]}
+[DEBUG] 2017-12-04 14:53:32.543 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_32_141"#expr="${mapresult1.val1}+${tp3.nodes[1].id}+${mapresult1[2]}"
+[DEBUG] 2017-12-04 14:53:32.543 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_32_141
+[DEBUG] 2017-12-04 14:53:32.543 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[1].id}+${mapresult1[2]}
+[DEBUG] 2017-12-04 14:53:32.543 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_32_142"#expr="${mapresult1.val1}+${tp3.nodes[2].id}+${mapresult1[2]}"
+[DEBUG] 2017-12-04 14:53:32.543 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_32_142
+[DEBUG] 2017-12-04 14:53:32.544 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[2].id}+${mapresult1[2]}
+[DEBUG] 2017-12-04 14:53:32.544 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_32_143"#expr="${mapresult1.val1}+${tp3.nodes[3].id}+${mapresult1[2]}"
+[DEBUG] 2017-12-04 14:53:32.544 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_32_143
+[DEBUG] 2017-12-04 14:53:32.544 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[3].id}+${mapresult1[2]}
+[DEBUG] 2017-12-04 14:53:32.544 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_32_144"#expr="${mapresult1.val1}+${tp3.nodes[4].id}+${mapresult1[2]}"
+[DEBUG] 2017-12-04 14:53:32.545 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_32_144
+[DEBUG] 2017-12-04 14:53:32.545 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[4].id}+${mapresult1[2]}
+[DEBUG] 2017-12-04 14:53:32.545 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_33_151"#expr="${mapresult1.val1}+${tp3.nodes[1].id}+${mapresult1[3]}"
+[DEBUG] 2017-12-04 14:53:32.545 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_33_151
+[DEBUG] 2017-12-04 14:53:32.545 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[1].id}+${mapresult1[3]}
+[DEBUG] 2017-12-04 14:53:32.545 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_33_152"#expr="${mapresult1.val1}+${tp3.nodes[2].id}+${mapresult1[3]}"
+[DEBUG] 2017-12-04 14:53:32.546 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_33_152
+[DEBUG] 2017-12-04 14:53:32.546 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[2].id}+${mapresult1[3]}
+[DEBUG] 2017-12-04 14:53:32.546 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_33_153"#expr="${mapresult1.val1}+${tp3.nodes[3].id}+${mapresult1[3]}"
+[DEBUG] 2017-12-04 14:53:32.546 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_33_153
+[DEBUG] 2017-12-04 14:53:32.546 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[3].id}+${mapresult1[3]}
+[DEBUG] 2017-12-04 14:53:32.547 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:41)] - ***extract: name="tttxxxz_33_154"#expr="${mapresult1.val1}+${tp3.nodes[4].id}+${mapresult1[3]}"
+[DEBUG] 2017-12-04 14:53:32.547 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:66)] - name: tttxxxz_33_154
+[DEBUG] 2017-12-04 14:53:32.547 [core.generator.Action.DynamicVarExtractAction.replacing(DynamicVarExtractAction.java:73)] - expr: ${mapresult1.val1}+${tp3.nodes[4].id}+${mapresult1[3]}
+[INFO ] 2017-12-04 14:53:32.548 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:109)] - ----- <foreach> eraser: erasing (3) -----
+[DEBUG] 2017-12-04 14:53:32.548 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.552 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.555 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.559 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[INFO ] 2017-12-04 14:53:32.640 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:100)] - ----- <foreach> eraser: parsing (4) -----
+[INFO ] 2017-12-04 14:53:32.641 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.641 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.641 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.641 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.642 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.642 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.642 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.642 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.642 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.642 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.642 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.643 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.643 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.643 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.643 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.643 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.643 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.643 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.644 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.644 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.644 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.644 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.644 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.644 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.644 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.645 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.645 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.645 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.645 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.645 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.645 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.645 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.646 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.646 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.646 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.646 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.646 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.646 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.646 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.646 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.647 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.647 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.647 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.647 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.647 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.647 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.648 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.648 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.648 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.648 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.648 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.648 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.648 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.649 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.649 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.649 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.649 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.649 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.649 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.649 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.650 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.650 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.650 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.650 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.650 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.650 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.650 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.650 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.650 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.653 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.653 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.653 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.653 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.653 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.654 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.654 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:80)] - foreach_var references: tp3
+[DEBUG] 2017-12-04 14:53:32.654 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:89)] - stack in: tp3
+[DEBUG] 2017-12-04 14:53:32.654 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:90)] - inTable: true
+[DEBUG] 2017-12-04 14:53:32.654 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:53)] - stack out: tp3
+[DEBUG] 2017-12-04 14:53:32.654 [core.generator.Action.ForeachMatchAction.replacing(ForeachMatchAction.java:66)] - process this time: tp3
+[INFO ] 2017-12-04 14:53:32.655 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:109)] - ----- <foreach> eraser: erasing (4) -----
+[DEBUG] 2017-12-04 14:53:32.655 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.656 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.657 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.659 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.661 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.662 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.663 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.664 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.666 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.667 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.668 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.670 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.672 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.673 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.674 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[DEBUG] 2017-12-04 14:53:32.676 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:113)] - expand foreach_var_ref: tp3
+[INFO ] 2017-12-04 14:53:32.768 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:100)] - ----- <foreach> eraser: parsing (5) -----
+[INFO ] 2017-12-04 14:53:32.770 [core.generator.TemplateProcessor.foreachEraser(TemplateProcessor.java:109)] - ----- <foreach> eraser: erasing (5) -----
+[INFO ] 2017-12-04 14:53:32.816 [core.generator.ReportGenerator.main(ReportGenerator.java:52)] - ===== Step 5: Report Generating =====
+[INFO ] 2017-12-04 14:53:33.481 [core.generator.ReportGenerator.main(ReportGenerator.java:54)] - ===== Done =====
