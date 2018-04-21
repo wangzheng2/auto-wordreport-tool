@@ -1,8 +1,15 @@
 package core.common;
 
+/**
+ * 统一Word报告生成系统（UWR）
+ * 抽象流数据源类
+ * @author 朴勇 15641190702
+ * 
+ */
 public abstract class StreamDataSource extends DataSource {
-
+	//路径
 	private String path = null;
+	//是否为物理文件
 	private boolean isFile = true;
 	
 	StreamDataSource(String name, String type, String path, boolean isFile) {

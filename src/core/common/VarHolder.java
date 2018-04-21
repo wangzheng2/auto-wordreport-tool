@@ -4,6 +4,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+/**
+ * 统一Word报告生成系统（UWR）
+ * 变量类
+ * @author 朴勇 15641190702
+ * 
+ */
 public class VarHolder extends DataHolder {
 	
 	public VarHolder(DataSource ds, String name, String value) {
@@ -17,6 +23,7 @@ public class VarHolder extends DataHolder {
 		this.setHolderRender(render);
 	}
 
+	//返回大小
 	@Override
 	public int size() {
 		Object value = this.getValue();
@@ -25,6 +32,7 @@ public class VarHolder extends DataHolder {
 		return ((CollectionHolder)value).size();
 	}
 	
+	//按照名字返回个数，供回调
 	@Override
 	public long count(String attrname) {
 
@@ -51,9 +59,11 @@ public class VarHolder extends DataHolder {
 				}
 			}
 		}
+		this.setSwap(String.valueOf(dataset.size()));
 		return dataset.size();
 	}
 
+	//按照名字返回和值，供回调。
 	@Override
 	public double sum(String attrname) {
 		Object value = this.getValue();
@@ -67,7 +77,62 @@ public class VarHolder extends DataHolder {
 			DataHolder dh = lh.getVars().get(i);
 			dbsum += dh.sum(attrname);
 		}
+		this.setSwap(String.valueOf(dbsum));
 		return dbsum;
+	}
+
+	@Override
+	public double max(String attrname) {
+		Object value = this.getValue();
+		double dbmax = Double.MIN_VALUE;
+
+		if (value==null) return 0;
+		if (value instanceof String) return Double.parseDouble((String)value);
+		CollectionHolder lh = (CollectionHolder)value;
+
+		for(int i=0; i<lh.size(); i++) {
+			DataHolder dh = lh.getVars().get(i);
+			double dbtemp = dh.max(attrname);
+			if(dbmax < dbtemp)
+				dbmax = dbtemp;
+		}
+		this.setSwap(String.valueOf(dbmax));
+		return dbmax;
+	}
+
+	@Override
+	public double min(String attrname) {
+		Object value = this.getValue();
+		double dbmin = Double.MAX_VALUE;
+
+		if (value==null) return 0;
+		if (value instanceof String) return Double.parseDouble((String)value);
+		CollectionHolder lh = (CollectionHolder)value;
+
+		for(int i=0; i<lh.size(); i++) {
+			DataHolder dh = lh.getVars().get(i);
+			double dbtemp = dh.min(attrname);
+			if(dbmin > dbtemp)
+				dbmin = dbtemp;
+		}
+		this.setSwap(String.valueOf(dbmin));
+		return dbmin;
+	}
+
+	//计数器，供回调
+	public int inc(String attrname) {
+		Object value = this.getValue();
+		double dbvalue = 0;
+		
+		if (value==null) return 0;
+		if (value instanceof String) {
+			dbvalue = Double.parseDouble((String)value);
+			dbvalue += 1;
+			this.setValue(String.valueOf((int)dbvalue));
+		}
+		
+		this.setSwap(String.valueOf(dbvalue));
+		return (int)dbvalue;
 	}
 
 }

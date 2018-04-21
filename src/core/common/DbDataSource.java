@@ -8,25 +8,42 @@ import org.apache.logging.log4j.Logger;
 
 import core.generator.ReportGenerator;
 
+/**
+ * 统一Word报告生成系统（UWR）
+ * 关系型数据库数据源类
+ * @author 朴勇 15641190702
+ * 
+ */
 public class DbDataSource extends DataSource {
-
+	//驱动
 	private String driver = null;
+	//URL
 	private String url = null;
+	//用户名
 	private String username = null;
+	//密码
 	private String password = null;
+	//连接
 	private Connection conn = null;
 	Logger logger = ReportGenerator.getLogger();
 	
-	public Connection getConnection() throws ClassNotFoundException, SQLException {
+	//获取连接
+	public Connection getConnection() {
 		if (conn == null) {
-			Class.forName(this.getDriver());
-            conn = DriverManager.getConnection(this.getUrl());
-            if(conn != null)
-            	logger.info("DB Connection successful: " + this.getUrl());
+			try {
+				Class.forName(this.getDriver());
+				conn = DriverManager.getConnection(this.getUrl(), this.getUsername(), this.getPassword());
+				if (conn != null)
+					logger.info("DB Connection successful: " + this.getUrl());
+			} catch (ClassNotFoundException e) {
+				logger.error("Can not find DB driver: "+this.getName(), e);
+			} catch (Exception e) {
+				logger.error("Can not create connection: "+this.getName(), e);
+			}
 		}
-		return conn;	
+		return conn;
 	}
-	
+
 	public String getDriver() {
 		return driver;
 	}
@@ -65,8 +82,18 @@ public class DbDataSource extends DataSource {
 		this.url = url;
 		this.username = username;
 		this.password = password;
-		//reuse hierarchical visitor here, which has enough ability to visit db data here.
+		//这里重用hierarchical访问器，具有足够的针对关系数据结构的访问能力。
 		setVisitor(new HierarchyVisitor(this));
 	}
 
+	@Override
+	public void cleanUp() {
+		if(conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				logger.error("Can not close database connection: "+this.getName(), e);
+			}
+		}
+	}
 }

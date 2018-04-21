@@ -1,8 +1,14 @@
 package core.common;
 
-public abstract interface DataType {
-	public static final String VALUE = "value";
-	public static final String MAP = "map";
-	public static final String LIST = "list";
-	public static final String NA = "na";
+/**
+ * 统一Word报告生成系统（UWR）
+ * 数据类型接口
+ * @author 朴勇 15641190702
+ * 
+ */
+public interface DataType {
+	String VALUE = "value";
+	String MAP = "map";
+	String LIST = "list";
+	String NA = "na";
 }

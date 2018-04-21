@@ -6,6 +6,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 统一Word报告生成系统（UWR）
+ * 集合类
+ * @author 朴勇 15641190702
+ * 
+ */
 public abstract class CollectionHolder extends DataHolder {
 
 	private List<DataHolder> vars = new ArrayList<DataHolder>();
@@ -24,6 +30,7 @@ public abstract class CollectionHolder extends DataHolder {
 			this.vars = vars;
 	}
 	
+	//返回该集合所含元素个数
 	@Override
 	public int size() {
 		if (vars != null) 
@@ -31,6 +38,7 @@ public abstract class CollectionHolder extends DataHolder {
 		else return 0;
 	}
 	
+	//按照变量名字返回个数，供回调。
 	@Override
 	public long count(String attrname) {
 		Iterator<DataHolder> itr = vars.iterator();
@@ -46,9 +54,11 @@ public abstract class CollectionHolder extends DataHolder {
 				dataset.put(tmp, elem);
 			}
 		}
+		this.setSwap(String.valueOf(dataset.size()));
 		return dataset.size();
 	}
 	
+	//按照变量名字返回和值，供回调。
 	@Override
 	public double sum(String attrname) {
 		Iterator<DataHolder> itr = vars.iterator();
@@ -61,6 +71,47 @@ public abstract class CollectionHolder extends DataHolder {
 					dbsum += Double.parseDouble((String)obj);
 			}
 		}
+		this.setSwap(String.valueOf(dbsum));
 		return dbsum;	
+	}
+
+	//按照变量名字返回最大值，供回调。
+	@Override
+	public double max(String attrname) {
+		Iterator<DataHolder> itr = vars.iterator();
+		double dbmax = Double.MIN_VALUE;
+		while(itr.hasNext()) {
+			DataHolder dh = itr.next();
+			if (attrname.equalsIgnoreCase(dh.getName())) {
+				Object obj = dh.getValue();
+				if (obj instanceof String) {
+					double dbtemp = Double.parseDouble((String)obj);
+					if (dbmax < dbtemp)
+						dbmax = dbtemp;
+				}
+			}
+		}
+		this.setSwap(String.valueOf(dbmax));
+		return dbmax;
+	}
+
+	//按照变量名字返回最小值，供回调。
+	@Override
+	public double min(String attrname) {
+		Iterator<DataHolder> itr = vars.iterator();
+		double dbmin = Double.MAX_VALUE;
+		while(itr.hasNext()) {
+			DataHolder dh = itr.next();
+			if (attrname.equalsIgnoreCase(dh.getName())) {
+				Object obj = dh.getValue();
+				if (obj instanceof String) {
+					double dbtemp = Double.parseDouble((String)obj);
+					if (dbmin > dbtemp)
+						dbmin = dbtemp;
+				}
+			}
+		}
+		this.setSwap(String.valueOf(dbmin));
+		return dbmin;
 	}
 }

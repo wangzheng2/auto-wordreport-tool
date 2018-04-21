@@ -1,13 +1,10 @@
 package core.render;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Paint;
-import java.awt.SystemColor;
-import java.awt.image.BufferedImage;
-import java.text.NumberFormat;
-import java.util.List;
-
+import com.aspose.words.*;
+import core.common.DataHolder;
+import core.common.HolderRender;
+import core.generator.ReportGenerator;
+import org.apache.logging.log4j.Logger;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.StandardChartTheme;
@@ -31,50 +28,93 @@ import org.jfree.chart.ui.RectangleInsets;
 import org.jfree.chart.ui.TextAnchor;
 import org.jfree.chart.util.Rotation;
 import org.jfree.data.category.CategoryDataset;
-import org.jfree.data.general.AbstractDataset;
 import org.jfree.data.general.PieDataset;
 
-import com.aspose.words.Document;
-import com.aspose.words.DocumentBuilder;
-import com.aspose.words.Node;
-import com.aspose.words.ReplaceAction;
-import com.aspose.words.ReplacingArgs;
+import java.awt.*;
+import java.awt.Font;
+import java.awt.image.BufferedImage;
+import java.text.NumberFormat;
 
-import core.common.DataHolder;
-import core.common.HolderRender;
-
+/**
+ * 统一Word报告生成系统（UWR）
+ * Chart呈现器类
+ * @author 陈安生
+ * @author 朴勇 15641190702
+ * 
+ */
 public class ChartRender implements HolderRender {
+	private Logger logger = ReportGenerator.getLogger();
 
+	//呈现方法
 	@Override
 	public int render(DataHolder dh, ReplacingArgs e, String[] varinfo) throws Exception {
 		Node node = e.getMatchNode();
 		DocumentBuilder builder = new DocumentBuilder((Document) node.getDocument());
-		int height = 0, width = 0;
+		int height = 400, width = 600;
+		String title = "Default Title", axisX = "Default AxisX", axisY = "Default AxisY";
 		
 		if (dh == null) return ReplaceAction.SKIP;
+		//按需填充
 		if(dh.getValue() == null) dh.fillValue();
 		
-		String chart = null;
-		
+		String chart = null, hei = null, wid = null;
+		//获取图形类型
 		for (int i = 0; i < varinfo.length; i++) {
 			if (varinfo[i].matches("chart=\".*?\"")) {
 				chart = varinfo[i].toLowerCase().replaceFirst("chart=\"", "");
 				chart = chart.replaceFirst("\"", "");
-				chart = chart.replaceFirst("\\$\\{", "");
-				chart = chart.replaceFirst("\\}", "");
-				System.out.println("chart: " + chart);
-				break;
+				logger.debug("chart: " + chart);
+			}
+			//获取图形高度
+			if (varinfo[i].matches("height=\".*?\"")) {
+				hei = varinfo[i].toLowerCase().replaceFirst("height=\"", "");
+				hei = hei.replaceFirst("\"", "");
+				logger.debug("height: " + hei);
+				if (hei != null && !"".equals(hei)) {
+					height = Integer.valueOf(hei);
+				}
+			}
+			//获取图形长度
+			if (varinfo[i].matches("width=\".*?\"")) {
+				wid = varinfo[i].toLowerCase().replaceFirst("width=\"", "");
+				wid = wid.replaceFirst("\"", "");
+				logger.debug("width: " + wid);
+				if (wid != null && !"".equals(wid)) {
+					width = Integer.valueOf(wid);
+				}
+			}
+			//获取图形标题
+			if (varinfo[i].matches("title=\".*?\"")) {
+				title = varinfo[i].toLowerCase().replaceFirst("title=\"", "");
+				title = title.replaceFirst("\"", "");
+				logger.debug("title: " + title);
+			}
+			//获取图形X轴标题
+			if (varinfo[i].matches("axisx=\".*?\"")) {
+				axisX = varinfo[i].toLowerCase().replaceFirst("axisx=\"", "");
+				axisX = axisX.replaceFirst("\"", "");
+				logger.debug("axisX: " + axisX);
+			}
+			//获取图形Y轴标题
+			if (varinfo[i].matches("axisy=\".*?\"")) {
+				axisY = varinfo[i].toLowerCase().replaceFirst("axisy=\"", "");
+				axisY = axisY.replaceFirst("\"", "");
+				logger.debug("axisY: " + axisY);
 			}
 		}
 		
 		if (chart == null || "".equals(chart)) chart="pie";
-		@SuppressWarnings("unchecked")
-		List<AbstractDataset> datasets = (List<AbstractDataset>) dh.getValue();
-		if(datasets == null || datasets.size() != 3) return ReplaceAction.SKIP;
+		if(dh.getValue() == null) return ReplaceAction.SKIP;
 		JFreeChart fchart = null;
-		if ("bar1".equals(chart)) {fchart = makeBarChart(datasets.get(0),"违反次数最多的规则(前五)", "规则名", "违反数"); width = 600; height = 400;}
-		else if ("bar2".equals(chart)) {fchart = makeBarChart(datasets.get(1),"文件规则违反统计图(前五)", "文件名", "违反数"); width = 600; height = 400;}
-		else if ("pie".equals(chart)) {fchart = makePieChart(datasets.get(2),"违反规则优先级"); width = 600; height = 300;}
+		if ("bar".equals(chart)) {
+			fchart = makeBarChart(dh.getValue(), title, axisX, axisY);
+		}
+		else if ("line".equals(chart)) {
+			fchart = makeLineChart(dh.getValue(), title, axisX, axisY);
+		}
+		else if ("pie".equals(chart)) {
+			fchart = makePieChart(dh.getValue(), title);
+		}
 		if (fchart == null) return ReplaceAction.SKIP;	
 		updateJFreeChartBeforeExport(fchart);
 		
@@ -84,7 +124,8 @@ public class ChartRender implements HolderRender {
 		return ReplaceAction.REPLACE;
 	}
 	
-	public JFreeChart makePieChart(AbstractDataset ds, String title) {
+	//按照数据生成图形
+	public JFreeChart makePieChart(Object ds, String title) {
 		StandardChartTheme theme = new StandardChartTheme("CN");
         theme.setExtraLargeFont(new Font("宋体", Font.BOLD, 12)); // 设置标题字体
         theme.setLargeFont(new Font("宋体", Font.BOLD, 12));
@@ -114,7 +155,7 @@ public class ChartRender implements HolderRender {
 		return chart;
 	}
 	
-	public JFreeChart makeBarChart(AbstractDataset ds, String title, String axisX, String axisY) {
+	public JFreeChart makeBarChart(Object ds, String title, String axisX, String axisY) {
 		StandardChartTheme theme = new StandardChartTheme("CN");
 		theme.setExtraLargeFont(new Font("宋体", Font.BOLD, 12)); // 设置标题字体
 		theme.setLargeFont(new Font("宋体", Font.BOLD, 12));
@@ -141,7 +182,28 @@ public class ChartRender implements HolderRender {
 
 		return chart;
 	}
-	
+
+	public JFreeChart makeLineChart(Object ds, String title, String axisX, String axisY) {
+		StandardChartTheme theme = new StandardChartTheme("CN");
+		theme.setExtraLargeFont(new Font("宋体", Font.BOLD, 12)); // 设置标题字体
+		theme.setLargeFont(new Font("宋体", Font.BOLD, 12));
+		theme.setRegularFont(new Font("宋体", Font.BOLD, 12));
+		ChartFactory.setChartTheme(theme);
+
+		JFreeChart chart = ChartFactory.createLineChart(title, axisX, axisY, (CategoryDataset) ds, PlotOrientation.VERTICAL, false, false, false);
+
+		chart.setBorderPaint(SystemColor.window);
+		chart.setBackgroundPaint(SystemColor.window);
+		CategoryPlot plot = (CategoryPlot) chart.getPlot();
+		plot.setBackgroundPaint(SystemColor.window);
+		plot.setDomainGridlinePaint(SystemColor.window);
+		CategoryAxis domainAxis = plot.getDomainAxis();
+		domainAxis.setMaximumCategoryLabelLines(Integer.MAX_VALUE);
+		domainAxis.setCategoryLabelPositions(CategoryLabelPositions.STANDARD);
+
+		return chart;
+	}
+
 	public void updateJFreeChartBeforeExport(JFreeChart chart) {
         chart.setBackgroundPaint(Color.white);
         LegendTitle legend = chart.getLegend();

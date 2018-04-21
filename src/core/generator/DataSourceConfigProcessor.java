@@ -11,6 +11,7 @@ import javax.xml.parsers.SAXParserFactory;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.SchemaFactory;
 
+import org.apache.logging.log4j.Logger;
 import org.xml.sax.Attributes;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
@@ -22,16 +23,24 @@ import core.common.*;
 import core.loader.ExprEvaluator;
 import core.render.LiteralRender;
 
+/**
+ * 统一Word报告生成系统（UWR）
+ * 配置文件解析类（SAX）
+ * @author 张学龙
+ * @author 朴勇 15641190702
+ * 
+ */
 public class DataSourceConfigProcessor extends DefaultHandler implements ErrorHandler, DataSourceType, DataType {
 	
 	private int i = 0;
-	private DataSourceConfig dsc = null;
+	private DataSourceConfig dsc;
 	//处理中的DataSource
 	private DataSource ds = null;
 	//考虑变量定义可能嵌套的情况
 	private List<DataHolder> dhs = new ArrayList<DataHolder>();
 	DataHolder dh = null;
 	private List<String> labels = new ArrayList<String>();
+	private Logger logger = ReportGenerator.getLogger();
 	
 	public DataSourceConfigProcessor(String filename){
 		dsc = DataSourceConfig.newInstance();
@@ -69,24 +78,28 @@ public class DataSourceConfigProcessor extends DefaultHandler implements ErrorHa
 			xmlReader.setErrorHandler(this);
 			xmlReader.parse(convertToFileURL(dsc.getFilename()));				
 		} catch (Exception e) {
-			e.printStackTrace();
+	    	logger.error("Can not find template file: "+dsc.getFilename(), e);
+	    	System.exit(-1);
 		}
 	}
 	
+	//文档开始
 	@Override
-	public void startDocument() throws SAXException {
+	public void startDocument() {
 		ArrayList<DataSource> dss = new ArrayList<DataSource>();
 		dsc.setDataSources(dss);
-        System.out.println("begin doc!");
+		logger.debug("config file parsing starts!");
     }
 	
+	//文档结束
 	@Override
 	public void endDocument() throws SAXException {
-		System.out.println("end doc!");
+		logger.debug("config file parsing ends!");
 	}
 	
+	//元素开始
 	@Override
-	public void startElement(String namespaceURI, String localName, String qName,  Attributes atts) throws SAXException {
+	public void startElement(String namespaceURI, String localName, String qName,  Attributes atts) {
 
 		i++;
 		String type=null;
@@ -100,14 +113,14 @@ public class DataSourceConfigProcessor extends DefaultHandler implements ErrorHa
 			expr = atts.getValue("expr");
 			if (expr == null || "".equals(expr)) expr = atts.getValue("query");
 		}
-		
-		if (("password".equals(localname) || "username".equals(localname) || "driver".equals(localname) || "url".equals(localname) || "var".equals(localname) || "file".equals(localname) || "path".equals(localname)) 
+
+		if (("password".equals(localname) || "username".equals(localname) || "driver".equals(localname) || "url".equals(localname) || "var".equals(localname) || "file".equals(localname) || "path".equals(localname) || "class".equals(localname))
 				&& ds != null) {
 			labels.add(localname);
 		}
 		
 		if ("var".equalsIgnoreCase(localName) && ds != null ) {
-			System.out.println(localName + "["+i+"]" +  " type:" + type);
+			logger.debug(localName + "["+i+"]" +  " type:" + type);
 			if (VALUE.equalsIgnoreCase(type)) {
 				dh = new VarHolder(ds, name, null, LiteralRender.newInstance());
 				dh.setExpr(expr);
@@ -140,18 +153,21 @@ public class DataSourceConfigProcessor extends DefaultHandler implements ErrorHa
 			} else if (XML.equalsIgnoreCase(type)) {
 				ds = new XmlDataSource(name, "", true);
 			} else if (JSON.equalsIgnoreCase(type)) {
-				// to be added!
+				ds = new JsonDataSource(name,"",true);
+			} else if (JAR.equalsIgnoreCase(type)) {
+				ds = new JarDataSource(name,"");
 			} else {
 				ds = new ImgDataSource(name,"",true);
 			}
 		}
 	}
 	
+	//元素结束
 	@Override
-	public void endElement(String uri, String localName, String qName) throws SAXException {
+	public void endElement(String uri, String localName, String qName) {
 
 		String localname = localName.toLowerCase();
-		if ("password".equals(localname) || "username".equals(localname) || "driver".equals(localname) || "url".equals(localname) || "var".equals(localname) || "file".equals(localname) || "path".equals(localname)) 
+		if ("password".equals(localname) || "username".equals(localname) || "driver".equals(localname) || "url".equals(localname) || "var".equals(localname) || "file".equals(localname) || "path".equals(localname) || "class".equals(localname))
 			labels.remove(labels.size() - 1);
 	
 		if ("var".equalsIgnoreCase(localName)) {
@@ -175,6 +191,7 @@ public class DataSourceConfigProcessor extends DefaultHandler implements ErrorHa
 		}
 	}
 	
+	//数据开始
 	@Override
     public void characters(char[] ch, int start, int length) throws SAXException {
 		
@@ -203,25 +220,29 @@ public class DataSourceConfigProcessor extends DefaultHandler implements ErrorHa
 				String pwd = new String(ch, start, length);
 				if (ds != null) ((DbDataSource) ds).setPassword(pwd);
 			}
+			if ("class".equals(labels.get(labels.size() - 1))) {
+				String classname= new String(ch, start, length);
+				if (ds != null) ((JarDataSource) ds).setFullClassName(classname);
+			}
 		}
     }
 	
 	@Override
-	public void warning(SAXParseException e) throws SAXException {
-		System.out.print("Warning at line " + e.getLineNumber() + ": ");
-		System.out.println(e.getMessage());
+	public void warning(SAXParseException e) {
+		logger.debug("Warning at line " + e.getLineNumber() + ": ");
+		logger.debug(e.getMessage());
 	}
 
 	@Override
-	public void error(SAXParseException e) throws SAXException {
-		System.out.print("Error at line " + e.getLineNumber() + ": ");
-		System.out.println(e.getMessage());
+	public void error(SAXParseException e) {
+		logger.error("Error at line " + e.getLineNumber() + ": ");
+		logger.error(e.getMessage());
 	}
 
 	@Override
-	public void fatalError(SAXParseException e) throws SAXException {
-		System.out.print("Fatal error at line " + e.getLineNumber() + ": ");
-		System.out.println(e.getMessage());
+	public void fatalError(SAXParseException e) {
+		logger.error("Fatal error at line " + e.getLineNumber() + ": ");
+		logger.error(e.getMessage());
 	}
 
 }

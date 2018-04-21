@@ -1,8 +1,17 @@
 package core.common;
 
+import core.generator.ReportGenerator;
+
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
+/**
+ * 统一Word报告生成系统（UWR）
+ * 数据源配置类（单例）
+ * @author 朴勇 15641190702
+ * 
+ */
 public class DataSourceConfig implements DataSourceType {
 	
 	private static final DataSourceConfig dsc = new DataSourceConfig();
@@ -51,14 +60,15 @@ public class DataSourceConfig implements DataSourceType {
 		return null;
 	}
 	
-	//address search sequence: DB->XML->Json->Const->Picture
+	//address search sequence: DB->XML->Json->Jar->Const->Picture
 	public DataHolder getDataHolder(String name) {
-		DataHolder dh = null;	
-		ArrayList<DataSource> constdss=new ArrayList<DataSource>();
-		ArrayList<DataSource> dbdss=new ArrayList<DataSource>();
-		ArrayList<DataSource> xmldss=new ArrayList<DataSource>();
-		ArrayList<DataSource> jsondss=new ArrayList<DataSource>();
-		ArrayList<DataSource> imgdss=new ArrayList<DataSource>();
+		DataHolder dh;
+		List<DataSource> constdss=new ArrayList<DataSource>();
+		List<DataSource> dbdss=new ArrayList<DataSource>();
+		List<DataSource> xmldss=new ArrayList<DataSource>();
+		List<DataSource> jsondss=new ArrayList<DataSource>();
+		List<DataSource> imgdss=new ArrayList<DataSource>();
+		List<DataSource> jardss=new ArrayList<DataSource>();
 
 		Iterator<DataSource> itr = this.getDataSources().iterator();
 		while(itr.hasNext()) {
@@ -69,6 +79,8 @@ public class DataSourceConfig implements DataSourceType {
 				dbdss.add(ds);
 			else if (XML.equalsIgnoreCase(ds.getType()))
 				xmldss.add(ds);
+			else if (JAR.equalsIgnoreCase(ds.getType()))
+				jardss.add(ds);
 			else if (IMG.equalsIgnoreCase(ds.getType()))
 				imgdss.add(ds);
 			else if (JSON.equalsIgnoreCase(ds.getType()))
@@ -92,7 +104,13 @@ public class DataSourceConfig implements DataSourceType {
 			dh = itr.next().getDataHolder(name);
 			if (dh != null) return dh;
 		}
-		
+
+		itr = jardss.iterator();
+		while(itr.hasNext()) {
+			dh = itr.next().getDataHolder(name);
+			if (dh != null) return dh;
+		}
+
 		itr = constdss.iterator();
 		while(itr.hasNext()) {
 			dh = itr.next().getDataHolder(name);
@@ -104,7 +122,8 @@ public class DataSourceConfig implements DataSourceType {
 			dh = itr.next().getDataHolder(name);
 			if (dh != null) return dh;
 		}
-		
+
+        ReportGenerator.getLogger().debug(name + " can not be found!");
 		return null;
 		
 	}

@@ -2,7 +2,16 @@ package core.common;
 
 import java.util.List;
 
+import static core.generator.ReportGenerator.getLogger;
+
+/**
+ * 统一Word报告生成系统（UWR）
+ * 简单访问者类
+ * @author 朴勇 15641190702
+ * 
+ */
 public class SimpleVisitor extends HolderVisitor{
+	//数据源
 	DataSource ds = null;
 
 	public SimpleVisitor(DataSource ds){
@@ -38,10 +47,10 @@ public class SimpleVisitor extends HolderVisitor{
 		
 		if (dhs == null || dhs.size() <= 0) return null;
 		if (null == name || "".equals(name)) return null;
-		// simple variable
+		//简单变量
 		if (!name.matches(".*?\\[\\d+\\]")) {
 			sname = name;
-		} else { // list variable
+		} else { //list变量
 			sname = name.replaceFirst("\\[\\d*\\].*", "");
 			sindex = name.replaceFirst(".*?\\[.*?","");
 			sindex = sindex.replaceFirst("\\].*","");
@@ -56,12 +65,15 @@ public class SimpleVisitor extends HolderVisitor{
 				dh = null;
 		}
 		
-		if (dh == null) return null;
+		if (dh == null)
+			return null;
 		if (index < 0) return dh;
 		
-		//here exception maybe thrown, should check!
 		CollectionHolder ch = (CollectionHolder)dh;
-		if (ch.getVars().size() < index || index<1) return null;
+		if (ch.getVars().size() < index || index<1) {
+			getLogger().debug("index " + index + " is out of boundary!");
+			return null;
+		}
 		return ch.getVars().get(index-1);
 	}
 

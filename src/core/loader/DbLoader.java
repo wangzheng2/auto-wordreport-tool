@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 
+import org.apache.logging.log4j.Logger;
+
 import core.common.CollectionHolder;
 import core.common.DataHolder;
 import core.common.DataSourceConfig;
@@ -16,23 +18,32 @@ import core.common.DbDataSource;
 import core.common.ListHolder;
 import core.common.MapHolder;
 import core.common.VarHolder;
+import core.generator.ReportGenerator;
 import core.render.LiteralRender;
 
+/**
+ * 统一Word报告生成系统（UWR）
+ * 关系型数据库数据加载器类（单例）
+ * @author 王铮
+ * @author 朴勇 15641190702
+ * 
+ */
 public class DbLoader extends DataLoader {
 	
 	private static DataLoader dbLoader = new DbLoader();
+	private Logger logger = ReportGenerator.getLogger();
 	
 	private DbLoader() {};
 	
 	public static DataLoader newInstance() {
 		return dbLoader;
 	}
-	
+	//获取连接
 	private Connection getConnection(DataHolder dh) throws ClassNotFoundException, SQLException {
 		DbDataSource ds = (DbDataSource)(dh.getDataSource());
 		return ds.getConnection();
 	}
-	
+	//获取数据并挂载到数据源
 	private String queryResult(DataHolder dh) throws Exception {
 		List<DataHolder> nodedhs = new ArrayList<DataHolder>();
 		String sql = dh.getExpr();
@@ -43,28 +54,32 @@ public class DbLoader extends DataLoader {
 		ResultSetMetaData meta = rs.getMetaData();
 		CollectionHolder ch = new ListHolder (dh.getDataSource(), "nodes", nodedhs, LiteralRender.newInstance());
 		dh.setValue(ch);
-		// loop through the result set
+		//结果集循环处理
 		int j= 0;
 		while (rs.next()) {	
 			List<DataHolder> attrdhs = new ArrayList<DataHolder>();
 			DataHolder mapdh = new MapHolder(dh.getDataSource(), meta.getTableName(1)+"_"+j++, attrdhs, LiteralRender.newInstance());
 			mapdh.setHolderRender(LiteralRender.newInstance());
 			nodedhs.add(mapdh);
-			//add a sequence attribute by default
+			//默认添加rawid属性
 			attrdhs.add(new VarHolder(dh.getDataSource(), "rawid", String.valueOf(j), LiteralRender.newInstance()));
 			for (int i = 0; i < meta.getColumnCount(); i++) {
 				String columnLabel = meta.getColumnLabel(i + 1);
-				DataHolder vardh = new VarHolder(dh.getDataSource(), columnLabel, rs.getObject(columnLabel).toString());
-				vardh.setHolderRender(LiteralRender.newInstance());
-				System.out.println(meta.getColumnName(i + 1)+": "+vardh.getValue());
-				attrdhs.add(vardh);
+				Object columnObject = rs.getObject(columnLabel);
+				if (columnLabel!=null && !"".equals(columnLabel) && columnObject != null) {
+					DataHolder vardh = new VarHolder(dh.getDataSource(), columnLabel, rs.getObject(columnLabel).toString());
+					vardh.setHolderRender(LiteralRender.newInstance());
+					logger.debug(meta.getColumnName(i + 1) + ": " + vardh.getValue());
+					attrdhs.add(vardh);
+				}
 			}
 		}
 		rs.close();
 		stmt.close();
 		return String.valueOf(nodedhs.size());
 	}
-
+	
+	//填充
 	@Override
 	public String fill(DataHolder dh) throws Exception {
 		String res = null;
@@ -75,8 +90,8 @@ public class DbLoader extends DataLoader {
 		
 		if (dh == null || expr == null || "".equals(expr) || val!=null) return String.valueOf(0);
 			
-		//parse expr to see if there are any variables contained
-		System.out.println(expr);
+		//是否有变量的引用？
+		logger.debug(expr);
 		String tmpexpr = null;
 		tmpexpr = expr;
 		while(expr.matches(".*?\\$\\{.*")) {
@@ -91,7 +106,7 @@ public class DbLoader extends DataLoader {
 		}
 		dh.setExpr(oexpr);
 		res = queryResult(dh);
-		System.out.println(res);
+		logger.debug(res);
 		return res;
 	}
 

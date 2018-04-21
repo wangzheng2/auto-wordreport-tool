@@ -11,6 +11,13 @@ import core.common.VarHolder;
 import core.generator.ReportGenerator;
 import core.render.LiteralRender;
 
+/**
+ * 统一Word报告生成系统（UWR）
+ * 静态变量处理类
+ * @author 张学龙
+ * @author 朴勇 15641190702
+ * 
+ */
 public class StaticVarExtractAction extends VarExtractAction {
 	
 	@Override
@@ -19,6 +26,7 @@ public class StaticVarExtractAction extends VarExtractAction {
 		String label = e.getMatch().group();
 		Logger logger = ReportGenerator.getLogger();
 		
+		//匹配数据的整理
 		label = label.replaceAll("”","\"");
 		label = label.replaceAll("“","\"");
 		label = label.replaceFirst("<[\\w:]*?var\\s*", "");
@@ -30,13 +38,14 @@ public class StaticVarExtractAction extends VarExtractAction {
 		
 		DataSource ds = null;
 		String dsname = null;
-		//get DataSource name, could be null if it is a simple variable.
+		//获取数据源信息
 		for (i=0; i<varinfo.length; i++) {
 			if (varinfo[i].matches("ds=\".*?\"")) {
+				//获取ds信息
 				dsname = varinfo[i].toLowerCase().replaceFirst("ds=\"", "");
 				dsname = dsname.replaceFirst("\"", "");
 				logger.debug("dsname: " + dsname);
-				//skip this <var ds=...>, we will process it further in step of label erasing
+				//跳过<var ds=...>，延迟到<foreach>的擦除处理
 				logger.debug("SKIPPED!");
 				return ReplaceAction.SKIP;
 			}
@@ -49,22 +58,24 @@ public class StaticVarExtractAction extends VarExtractAction {
 			
 			for (i=0; i<varinfo.length; i++) {			
 				if (varinfo[i].toLowerCase().matches("name=\".*?\"")) {
+					//获取name信息
 					String name = varinfo[i].toLowerCase().replaceFirst("name=\"", "");
 					name = name.replaceFirst("\"", "");
 					vh.setName(name);
 					logger.debug("name: " + name);
 				}
 				if (varinfo[i].toLowerCase().matches("expr=\\\".*?\\\"")) {
+					//获取expr信息
 					String expr = varinfo[i].replaceFirst("expr=\"", "");
 					expr = expr.replaceFirst("\"", "");
 					if (expr != null || "".equals(expr))
 						vh.setExpr(expr);
 					logger.debug("expr: " + expr);
-					//skip this <var expr=...>, we will process it further in step of label erasing
 					logger.debug("SKIPPED!");
 					return ReplaceAction.SKIP;
 				}
 				if (varinfo[i].toLowerCase().matches("query=\\\".*?\\\"")) {
+					//获取query信息
 					String expr = varinfo[i].replaceFirst("query=\"", "");//not case sensitive!
 					expr = expr.replaceFirst("\"", "");
 					if (expr != null || "".equals(expr))
@@ -72,6 +83,7 @@ public class StaticVarExtractAction extends VarExtractAction {
 					logger.debug("query: " + expr);
 				}
 				if (varinfo[i].toLowerCase().matches("value=\\\".*?\\\"")) {
+					//获取value信息
 					String value = varinfo[i].replaceFirst("value=\"", "");
 					value = value.replaceFirst("\"", "");
 					vh.setValue(value);

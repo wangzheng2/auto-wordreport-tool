@@ -3,6 +3,12 @@ package core.common;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 统一Word报告生成系统（UWR）
+ * 层次访问者类
+ * @author 朴勇 15641190702
+ * 
+ */
 public class HierarchyVisitor extends SimpleVisitor{
 
 	public HierarchyVisitor(DataSource ds) {
@@ -30,6 +36,11 @@ public class HierarchyVisitor extends SimpleVisitor{
 			vh = (VarHolder)getDataHolder(ds.getVars(), levelname[0]);
 			if(vh!=null) {
 				range = new ArrayList<DataHolder>();
+				try {
+					vh.fillValue();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 				range.add((CollectionHolder)(vh.getValue()));
 			}
 		} else {
@@ -39,9 +50,8 @@ public class HierarchyVisitor extends SimpleVisitor{
 		if (levelname != null && levelname.length > 2) {
 			for (int i=1; i<levelname.length - 1; i++) {
 				ch = (CollectionHolder)getDataHolder(range, levelname[i]);
-				if (ch != null) {
+				if (ch != null)
 					range = ch.getVars();
-				}
 			}
 		}
 		

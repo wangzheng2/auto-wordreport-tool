@@ -3,11 +3,20 @@ package core.common;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 统一Word报告生成系统（UWR）
+ * 抽象数据源类
+ * @author 朴勇 15641190702
+ * 
+ */
 public abstract class DataSource implements DataSourceType {
-	
+	//类型
 	private String type = CONST;
+	//数据源名字
 	private String name = null;
+	//挂载变量
 	private List<DataHolder> vars = new ArrayList<DataHolder>();
+	//数据访问器
 	private HolderVisitor visitor = null;
 	
 	DataSource(String name, String type){
@@ -30,6 +39,8 @@ public abstract class DataSource implements DataSourceType {
 			this.type = JSON;
 		else if(IMG.equalsIgnoreCase(type.trim()))
 			this.type = IMG;
+		else if(JAR.equalsIgnoreCase(type.trim()))
+			this.type = JAR;
 		else
 			this.type = NA;
 	}
@@ -60,8 +71,10 @@ public abstract class DataSource implements DataSourceType {
 		this.visitor = hv;
 	}
 	
+	//寻址
 	public DataHolder getDataHolder(String name) {
 		return getVisitor().getDataHolder(name);
 	}
-	
+
+	public abstract  void cleanUp();
 }
