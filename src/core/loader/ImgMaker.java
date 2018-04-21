@@ -24,8 +24,7 @@ import core.generator.ReportGenerator;
 /**
  * 统一Word报告生成系统（UWR）
  * 图形数据加载类（单例）
- * @author 王铮
- * @author 朴勇 15641190702
+ *  @author 王铮 18640548252
  * 
  */
 public class ImgMaker extends DataLoader{

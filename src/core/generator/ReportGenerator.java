@@ -19,7 +19,7 @@ import com.aspose.words.License;
 
 /**
  * 统一Word报告生成系统（UWR）
- * @author 朴勇 15641190702
+ *  @author 王铮 18640548252
  * 
  */
 public class ReportGenerator {

@@ -26,8 +26,7 @@ import core.render.LiteralRender;
 /**
  * 统一Word报告生成系统（UWR）
  * 配置文件解析类（SAX）
- * @author 张学龙
- * @author 朴勇 15641190702
+ * @author 王铮 18640548252
  * 
  */
 public class DataSourceConfigProcessor extends DefaultHandler implements ErrorHandler, DataSourceType, DataType {

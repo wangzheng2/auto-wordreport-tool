@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * 统一Word报告生成系统（UWR）
  * 变量类
- * @author 朴勇 15641190702
+ * @author 王铮 18640548252
  * 
  */
 public class VarHolder extends DataHolder {

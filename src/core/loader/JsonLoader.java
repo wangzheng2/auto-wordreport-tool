@@ -27,8 +27,7 @@ import core.render.LiteralRender;
 /**
  * 缁熶竴Word鎶ュ憡鐢熸垚绯荤粺锛圲WR锛�
  * Json鏁版嵁鍔犺浇绫�
- * @author 鐜嬮摦
- * @author 鏈村媷 15641190702
+ *  @author 王铮 18640548252
  * 
  */
 public class JsonLoader extends DataLoader {

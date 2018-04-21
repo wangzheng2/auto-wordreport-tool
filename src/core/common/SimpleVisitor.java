@@ -7,7 +7,7 @@ import static core.generator.ReportGenerator.getLogger;
 /**
  * 统一Word报告生成系统（UWR）
  * 简单访问者类
- * @author 朴勇 15641190702
+ * @author 王铮 18640548252
  * 
  */
 public class SimpleVisitor extends HolderVisitor{
