@@ -26,7 +26,7 @@ import static core.generator.ReportGenerator.*;
 /**
  * 统一Word报告生成系统（UWR）
  * 模板引擎类
- *  @author 王铮 18640548252
+
  * 
  */
 public class TemplateProcessor {

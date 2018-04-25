@@ -16,7 +16,7 @@ import core.generator.ReportGenerator;
 /**
  * 统一Word报告生成系统（UWR）
  * 文字呈现器类（单例）
- * @author 王铮 18640548252
+
  * 
  */
 public class LiteralRender implements HolderRender {

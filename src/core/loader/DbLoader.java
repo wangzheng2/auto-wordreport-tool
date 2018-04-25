@@ -24,7 +24,7 @@ import core.render.LiteralRender;
 /**
  * 统一Word报告生成系统（UWR）
  * 关系型数据库数据加载器类（单例）
- *  @author 王铮 18640548252
+
  * 
  */
 public class DbLoader extends DataLoader {

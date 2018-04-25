@@ -20,7 +20,7 @@ import core.generator.ReportGenerator;
 /**
  * 统一Word报告生成系统（UWR）
  * 变量重写类
- * @author 王铮 18640548252
+
  * 
  */
 public class VarRewriteAction implements IReplacingCallback {

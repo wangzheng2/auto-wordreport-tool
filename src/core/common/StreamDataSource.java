@@ -3,7 +3,7 @@ package core.common;
 /**
  * 统一Word报告生成系统（UWR）
  * 抽象流数据源类
- * @author 王铮 18640548252
+
  * 
  */
 public abstract class StreamDataSource extends DataSource {

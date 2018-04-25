@@ -12,7 +12,7 @@ import core.generator.ReportGenerator;
 /**
  * 统一Word报告生成系统（UWR）
  * Image呈现器类
- * @author 王铮 18640548252
+
  * 
  */
 public class ImgRender implements HolderRender {

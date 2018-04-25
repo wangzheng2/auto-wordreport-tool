@@ -16,7 +16,7 @@ import core.generator.ReportGenerator;
 /**
  * 统一Word报告生成系统（UWR）
  * <out>标签重写类
- * @author 王铮 18640548252
+
  */
 public class OutRewriteAction implements IReplacingCallback {
 	//对应的<foreach>标签

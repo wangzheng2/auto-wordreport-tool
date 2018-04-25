@@ -9,7 +9,7 @@ import com.aspose.words.ReplacingArgs;
 /**
  * 统一Word报告生成系统（UWR）
  * 抽象数据类
- * @author 王铮 18640548252
+
  * 
  */
 public abstract class DataHolder implements DataType {

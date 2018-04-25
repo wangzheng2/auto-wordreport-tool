@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 统一Word报告生成系统（UWR）
  * 层次访问者类
- * @author 王铮 18640548252
+
  * 
  */
 public class HierarchyVisitor extends SimpleVisitor{

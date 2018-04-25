@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * 统一Word报告生成系统（UWR）
  * 集合类
- * @author 王铮 18640548252
+
  * 
  */
 public abstract class CollectionHolder extends DataHolder {

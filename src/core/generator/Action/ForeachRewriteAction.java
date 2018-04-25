@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * 统一Word报告生成系统（UWR）
  * <foreach>标签重写类
- *  @author 王铮 18640548252
+
  * 
  */
 public class ForeachRewriteAction implements IReplacingCallback {

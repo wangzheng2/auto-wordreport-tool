@@ -18,7 +18,7 @@ import core.render.LiteralRender;
 /**
  * 统一Word报告生成系统（UWR）
  * 动态变量处理类
- *  @author 王铮 18640548252
+ 
  * 
  */
 public class DynamicVarExtractAction extends VarExtractAction {

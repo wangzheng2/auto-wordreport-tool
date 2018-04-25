@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 统一Word报告生成系统（UWR）
  * 链表类
- * @author 王铮 18640548252
+
  * 
  */
 public class ListHolder extends CollectionHolder {
